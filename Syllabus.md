@@ -99,34 +99,35 @@ Full-stack coding begins in Phase 1.
 
 2. Development Setup
 
-Learn while creating the project:
+├── Node.js + npm                    
+       ├── Main project structure           ✅
+       ├── VS Code setup                    ✅
+       ├── Git initialization               ✅
+       ├── .gitignore                       ✅
+       ├── React + TypeScript frontend      ✅
+       ├── Vite                             ✅
+       ├── Node + Express backend           ✅
+       ├── Backend TypeScript setup         ✅
+       ├── Frontend running                 ✅
+       ├── Backend running                  ✅
+       ├── GitHub repository                ✅
+       ├── First commit + push              ✅
+       │
+       ├── React → Express API call         🔄 CURRENT
+       ├── CORS                             🔄 CURRENT
+       │
+       ├── Environment variables            ⏳ NEXT
+       ├── MongoDB + Mongoose setup         ⏳
+       ├── Express → MongoDB connection     ⏳
+       ├── First MongoDB model              ⏳
+       ├── POST → save data                 ⏳
+       ├── GET → retrieve data              ⏳
+       ├── React → API → MongoDB → React    ⏳
+       ├── Debugging setup problems         ⏳
+       └── Quick revision                   ⏳
 
-VS Code
-Terminal
-Node.js
-npm/npx
-package.json
-Git
-GitHub
-Postman
-MongoDB Compass
-Environment variables
-ESLint
-Prettier
-.gitignore
-🛠 Practical
+#### PHASE 2 — FRONTEND FOUNDATION
 
-Create a real:
-
-client/
-server/
-README.md
-.env
-.gitignore
-
-repository from zero.
-
-PHASE 2 — FRONTEND FOUNDATION
 3. HTML
 
 Only practical HTML needed for professional frontend work.
@@ -212,7 +213,7 @@ Reusable styling patterns
 
 Rebuild one complete responsive dashboard using Tailwind.
 
-PHASE 3 — JAVASCRIPT
+#### PHASE 3 — JAVASCRIPT
 
 This is one of the most important phases for interviews + development.
 
