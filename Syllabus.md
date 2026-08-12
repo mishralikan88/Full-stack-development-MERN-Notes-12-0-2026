@@ -55,46 +55,44 @@ DO IT WITHOUT HELP
 
 #### PHASE 1 — FULL-STACK BASICS & PROJECT SETUP
 
-1. How a web application works
+1. How a Web Application Works
 
-Frontend vs Backend
-Client vs Server
-Database
-Browser
-DNS basics
-HTTP/HTTPS
-Request/Response
-JSON
-REST API
-HTTP methods
-Status codes
-Headers
-Query params
-Route params
-Cookies
-Local/session storage
-CORS basics
-
-🛠 Practical
-
-Build immediately:
-
-Simple Form
-    ↓
-Frontend
-    ↓
-POST Request
-    ↓
-Node/Express
-    ↓
-MongoDB
-    ↓
-GET Request
-    ↓
-Display Data
-
-Full-stack coding begins in Phase 1.
-
+├── What is a Web Application?                 ✅
+├── Frontend                                   ✅
+├── Backend                                    ✅
+├── Database                                   ✅
+├── Frontend ↔ Backend communication           ✅
+├── HTTP Request / Response                    ✅
+├── API basics                                 ✅
+├── GET                                        ✅
+├── POST                                       ✅
+├── PATCH                                      ✅
+├── DELETE                                     ✅
+├── CRUD                                       ✅
+├── Complete full-stack request flow           ✅
+├── Frontend validation concept                ✅
+├── Backend validation concept                 ✅
+├── Where TypeScript fits                      ✅
+├── Where Tailwind fits                        ✅
+├── Node.js role                               ✅
+├── Express role                               ✅
+├── MongoDB role                               ✅
+├── Requirement → technical task breakdown     ✅
+├── Client vs Server                           ✅
+├── Browser                                    ✅
+├── DNS basics                                 ✅
+├── HTTP vs HTTPS                              ✅
+├── JSON — proper understanding                ✅
+├── REST API                                   ✅
+├── HTTP status codes                          ✅
+├── HTTP headers                               ✅
+├── Route params                               ✅
+├── Query params                               ✅
+├── Cookies                                    ✅
+├── localStorage                               ✅
+├── sessionStorage                             ✅
+├── Cookies vs localStorage vs sessionStorage  ✅
+├── CORS basics                                ✅
 
 
 2. Development Setup
@@ -107,14 +105,14 @@ Full-stack coding begins in Phase 1.
 ├── CORS                               ✅
 ├── Environment variables              ✅
 ├── MongoDB Atlas + Mongoose           ✅
-├── Database connection                ✅ 
-├── Employee model                     ✅ 
-├── POST /api/employees                ✅ 
-├── Save employee to MongoDB           ✅ 
-├── GET employees from MongoDB         ⏳
-├── Show employees in React            ⏳
-├── Full React → API → MongoDB flow    ⏳
-└── Topic 2 quick revision             ⏳
+├── Database connection                ✅
+├── Employee model                     ✅
+├── POST /api/employees                ✅
+├── Save employee to MongoDB           ✅
+├── GET employees from MongoDB         ✅
+├── Show employees in React            ✅
+├── Full React → API → MongoDB flow    ✅
+└── Topic 2 quick revision             ✅
 
 #### PHASE 2 — FRONTEND FOUNDATION
 
@@ -142,6 +140,8 @@ Contact form
 Employee form
 Data table
 Dashboard structure
+
+
 4. CSS
 Core
 Box model
@@ -186,6 +186,8 @@ Modal
 Responsive table
 Responsive form
 Landing page
+
+
 5. Tailwind CSS
 Setup
 Utility classes
@@ -200,7 +202,6 @@ Dark mode
 Themes
 Reusable styling patterns
 🛠 Build
-
 Rebuild one complete responsive dashboard using Tailwind.
 
 #### PHASE 3 — JAVASCRIPT
@@ -334,7 +335,11 @@ retry
 groupBy
 Promise.all
 EventEmitter
-PHASE 4 — TYPESCRIPT
+
+
+#### PHASE 4 — TYPESCRIPT
+
+
 10. TypeScript for Full-Stack Development
 Core
 Types
@@ -389,7 +394,9 @@ Generic reusable models
 
 Build/convert an application using strict TypeScript.
 
-PHASE 5 — REACT
+#### PHASE 5 — REACT
+
+
 11. React Core
 JSX
 Components
@@ -504,7 +511,7 @@ Profiling
 
 Take a badly structured React app → refactor and optimize it.
 
-PHASE 6 — FRONTEND MACHINE CODING
+#### PHASE 6 — FRONTEND MACHINE CODING
 
 Machine coding starts alongside React rather than waiting until everything is finished.
 
@@ -558,7 +565,9 @@ No ChatGPT
 No Claude
      ↓
 Working Solution
-PHASE 7 — BACKEND
+
+#### PHASE 7 — BACKEND
+
 18. Node.js
 
 Only relevant theory + implementation.
@@ -639,7 +648,8 @@ I give requirements.
 
 You design the APIs.
 
-PHASE 8 — DATABASE
+#### PHASE 8 — DATABASE
+
 21. MongoDB + Mongoose
 MongoDB
 Database
@@ -681,7 +691,8 @@ Given business requirements:
 
 You design the database yourself.
 
-PHASE 9 — REAL FULL-STACK DEVELOPMENT
+#### PHASE 9 — REAL FULL-STACK DEVELOPMENT
+
 
 This is where everything combines.
 
@@ -779,7 +790,8 @@ Retry
 
 Integrate a sandbox/test payment workflow.
 
-PHASE 10 — TESTING + SECURITY
+#### PHASE 10 — TESTING + SECURITY
+
 26. Testing
 Frontend
 Unit tests
@@ -817,7 +829,9 @@ Rate limiting
 Input validation
 Secrets
 Upload security
-PHASE 11 — PRODUCTION
+
+#### PHASE 11 — PRODUCTION
+
 28. Docker + Deployment
 Docker
 Images
@@ -862,7 +876,8 @@ Incident handling
 
 Deploy the master application and then debug production-like failures.
 
-PHASE 12 — MASTER FULL-STACK PROJECT
+#### PHASE 12 — MASTER FULL-STACK PROJECT
+
 30. WorkForge — Production SaaS
 
 This is our main learning project.
@@ -925,7 +940,8 @@ Background Jobs
 Docker
 CI/CD
 Production
-PHASE 13 — INDEPENDENT FULL-STACK PROJECTS
+
+#### PHASE 13 — INDEPENDENT FULL-STACK PROJECTS
 
 This phase proves you don't depend on me or AI.
 
@@ -995,7 +1011,7 @@ Handover
 
 This is your final freelancing test.
 
-PHASE 14 — INTERVIEW PREPARATION
+#### PHASE 14 — INTERVIEW PREPARATION
 
 This happens in parallel with the syllabus, but we'll have a dedicated final phase too.
 
@@ -1094,7 +1110,7 @@ ROUND 11  Senior-Level Questions
 
 No ChatGPT. No Claude. No hints.
 
-PHASE 15 — FREELANCING
+#### PHASE 15 — FREELANCING
 
 
 37. Freelance Project Handling
