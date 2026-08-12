@@ -2093,3 +2093,1224 @@ Git
 That's enough theory.
 
 
+
+Topic 2.22 — MongoDB + Mongoose Setup
+Goal
+
+By the end of this section:
+
+React :5173
+      ↓
+Express :5000
+      ↓
+Mongoose
+      ↓
+MongoDB
+      ↓
+✅ Database Connected
+
+For now, we're only establishing the database connection. We will create the Employee model and CRUD immediately afterward.
+
+2.22.1 — MongoDB vs Mongoose
+
+Keep this very simple.
+
+MongoDB = our database.
+
+It stores documents such as:
+
+{
+  "_id": "68abc...",
+  "name": "Rahul",
+  "email": "rahul@test.com",
+  "department": "Development"
+}
+
+Mongoose = a Node.js library that makes working with MongoDB easier.
+
+Our backend flow will become:
+
+Express
+   ↓
+Mongoose
+   ↓
+MongoDB
+
+You'll learn schemas, models, validation, queries, indexes, aggregation, etc. properly in the MongoDB phase.
+
+Right now, we only need to connect.
+
+2.22.2 — Which MongoDB Are We Going to Use?
+
+For this master learning project, I recommend MongoDB Atlas.
+
+That means MongoDB runs in the cloud instead of requiring the database server to run on your Windows machine.
+
+We'll have:
+
+YOUR COMPUTER
+
+React
+   ↓
+Express
+   ↓
+Internet
+   ↓
+MongoDB Atlas
+   ↓
+Database
+
+You can still use MongoDB Compass to visually inspect the database.
+
+2.22.3 — Create MongoDB Atlas Account/Project
+
+Go to MongoDB Atlas.
+
+Sign in/create an account.
+
+Then create a project.
+
+You can name it:
+
+MERN Fullstack Mastery
+
+Then create a database deployment using the available free option suitable for learning.
+
+Atlas's UI can change, so don't worry if the exact button wording differs slightly.
+
+2.22.4 — Create Database User
+
+Atlas will require database credentials.
+
+Create a database user.
+
+For example:
+
+Username:
+mern_user
+
+Password:
+<generate a strong password>
+
+⚠️ Do not send me your actual password.
+
+And don't put it directly inside index.ts.
+
+It will eventually live in:
+
+server/.env
+
+which Git ignores.
+
+2.22.5 — Configure Network Access
+
+Atlas also controls which IP addresses may connect to your database.
+
+For development, add your current IP address using Atlas's network-access setup.
+
+Atlas also offers broader access options, but allowing only the necessary IPs is the better habit.
+
+2.22.6 — Get Your Connection String
+
+In Atlas, find the option to Connect your database and choose the application/driver connection option.
+
+You should get something resembling:
+
+mongodb+srv://mern_user:<password>@cluster-name.mongodb.net/
+
+Again:
+
+Do not paste your real connection string into this chat, because it contains database credentials.
+
+2.22.7 — Add Database Name
+
+Let's call our learning database:
+
+mern_master
+
+Your URI conceptually becomes:
+
+mongodb+srv://USERNAME:PASSWORD@CLUSTER/mern_master
+
+MongoDB can create this database when we first store data, so don't be concerned if you can't see mern_master in Atlas yet.
+
+2.22.8 — Put URI in Backend .env
+
+📍 Open exactly:
+
+D:\Fullstack-MERN\MERN-master-project
+└── server
+    └── .env
+
+You currently have:
+
+PORT=5000
+
+Add:
+
+PORT=5000
+MONGODB_URI=YOUR_REAL_CONNECTION_STRING
+
+For example structurally:
+
+PORT=5000
+MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@CLUSTER/mern_master
+
+Use your actual Atlas connection string, not my placeholder.
+
+Important
+
+If your password contains characters such as:
+
+@
+:
+/
+?
+#
+%
+
+they may need URL encoding in a connection URI.
+
+Using Atlas's generated connection details carefully helps avoid this issue.
+
+2.22.9 — Update .env.example
+
+📍 Open:
+
+server/.env.example
+
+Change it to:
+
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+
+Notice the difference:
+
+server/.env
+
+REAL credentials
+❌ Git ignored
+
+
+server/.env.example
+
+Placeholder
+✅ Git committed
+2.22.10 — Install Mongoose
+
+Open your server terminal.
+
+📍 Make sure you're here:
+
+PS D:\Fullstack-MERN\MERN-master-project\server>
+
+Run:
+
+npm install mongoose
+
+Don't install:
+
+@types/mongoose
+
+Modern Mongoose already provides its TypeScript definitions.
+
+2.22.11 — Don't Put Everything in index.ts
+
+We could write:
+
+mongoose.connect(...)
+
+directly inside index.ts.
+
+It would work.
+
+But we're learning how to structure a real project.
+
+Let's introduce our first backend organization.
+
+Inside:
+
+server/src
+
+create a folder:
+
+config
+
+Then create:
+
+db.ts
+
+Exact structure:
+
+MERN-master-project/
+└── server/
+    └── src/
+        ├── config/
+        │   └── db.ts          ← CREATE
+        │
+        └── index.ts
+2.22.12 — Write Database Connection Function
+
+📍 Open:
+
+server/src/config/db.ts
+
+Add:
+
+import mongoose from "mongoose";
+
+export const connectDatabase = async (): Promise<void> => {
+  try {
+    const mongoUri = process.env.MONGODB_URI;
+
+    if (!mongoUri) {
+      throw new Error("MONGODB_URI is not defined");
+    }
+
+    await mongoose.connect(mongoUri);
+
+    console.log("MongoDB connected successfully");
+  } catch (error) {
+    console.error("MongoDB connection failed:", error);
+
+    process.exit(1);
+  }
+};
+
+Let's understand this before using it.
+
+2.22.13 — process.env.MONGODB_URI
+
+Remember our:
+
+server/.env
+
+contains:
+
+MONGODB_URI=...
+
+Node can access it using:
+
+process.env.MONGODB_URI
+
+So:
+
+const mongoUri = process.env.MONGODB_URI;
+
+takes the MongoDB connection string from the environment.
+
+2.22.14 — Why Check !mongoUri?
+
+We wrote:
+
+if (!mongoUri) {
+  throw new Error("MONGODB_URI is not defined");
+}
+
+Suppose somebody clones your project but forgets to create:
+
+server/.env
+
+Instead of getting a confusing database error later, our application clearly says:
+
+MONGODB_URI is not defined
+
+This is called failing fast.
+
+2.22.15 — Actual Database Connection
+
+This is the important line:
+
+await mongoose.connect(mongoUri);
+
+Conceptually:
+
+Node application
+      ↓
+mongoose.connect()
+      ↓
+Connection URI
+      ↓
+MongoDB Atlas
+
+Because connecting is asynchronous, we use:
+
+await
+
+We'll deeply understand async/await during JavaScript.
+
+2.22.16 — Why process.exit(1)?
+
+If our application cannot connect to its required database, we don't want to pretend everything is healthy.
+
+process.exit(1);
+
+terminates the Node process with an error status.
+
+For now:
+
+0 → normal/successful termination
+
+1 → failure
+
+That's enough.
+
+2.22.17 — Connect Database When Server Starts
+
+Now open:
+
+server/src/index.ts
+
+Change it to:
+
+import "dotenv/config";
+import express from "express";
+import cors from "cors";
+
+import { connectDatabase } from "./config/db.js";
+
+const app = express();
+
+const PORT = process.env.PORT || 5000;
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
+
+app.use(express.json());
+
+app.get("/api/health", (req, res) => {
+  res.json({
+    success: true,
+    message: "Backend is running successfully",
+  });
+});
+
+const startServer = async () => {
+  await connectDatabase();
+
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+};
+
+startServer();
+
+There are two important changes.
+
+First:
+
+import { connectDatabase } from "./config/db.js";
+
+We're importing our database connection function.
+
+Second:
+
+const startServer = async () => {
+  await connectDatabase();
+
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+};
+
+We're deliberately connecting to MongoDB before starting the HTTP server.
+
+So startup becomes:
+
+Start application
+       ↓
+Load environment variables
+       ↓
+Connect MongoDB
+       ↓
+Connection successful?
+       ↓
+      YES
+       ↓
+Start Express
+       ↓
+Listen on port 5000
+
+If MongoDB fails:
+
+MongoDB connection
+       ↓
+      FAIL
+       ↓
+process.exit(1)
+       ↓
+Server doesn't start
+
+That's a much cleaner startup behavior.
+
+One New Line You Saw
+
+We also added:
+
+app.use(express.json());
+
+This middleware allows Express to parse JSON request bodies.
+
+Very soon React will send:
+
+{
+  "name": "Rahul",
+  "email": "rahul@test.com"
+}
+
+Without JSON-body parsing, our API wouldn't conveniently get that object through req.body.
+
+We'll understand middleware properly in the Express phase.
+
+2.22.18 — Run the Backend
+
+📍 Terminal:
+
+D:\Fullstack-MERN\MERN-master-project\server
+
+Run:
+
+npm run dev
+
+If everything is correct, you should see:
+
+MongoDB connected successfully
+Server running on port 5000
+
+🎯 That is our target output.
+
+Your architecture has now become:
+
+              FRONTEND
+         React + TypeScript
+               :5173
+                 │
+                 │ HTTP
+                 ▼
+              BACKEND
+      Node + Express + TypeScript
+               :5000
+                 │
+                 │ Mongoose
+                 ▼
+              DATABASE
+            MongoDB Atlas
+
+We officially have all major pieces of MERN connected.
+
+Don't commit yet
+
+We're going to make this more meaningful before committing.
+
+Our next section is:
+
+Topic 2.23 — First Employee Model + MongoDB Save
+
+We'll create:
+
+server/src/
+│
+├── config/
+│   └── db.ts
+│
+├── models/
+│   └── employee.model.ts
+│
+└── index.ts
+
+Then your first real database flow:
+
+POST /api/employees
+        ↓
+Express receives JSON
+        ↓
+Create Employee
+        ↓
+Mongoose
+        ↓
+MongoDB Atlas
+        ↓
+201 Created
+
+After that we'll open Atlas/Compass and actually see the employee document you created.
+
+
+Topic 2.23 — First Employee Model
+
+Now we're going to store real data in MongoDB for the first time.
+
+We currently have:
+
+React
+  ↓
+Express
+  ↓
+Mongoose
+  ↓
+MongoDB Atlas
+
+Now we'll build:
+
+POST /api/employees
+        ↓
+Express
+        ↓
+Employee Model
+        ↓
+Mongoose
+        ↓
+MongoDB
+        ↓
+Employee saved
+        ↓
+201 Created
+
+For this first implementation, we'll keep the architecture deliberately simple. Later, during the Express phase, we'll refactor into routes → controllers → services → models.
+
+2.23.1 — What is a Mongoose Schema and Model?
+
+Very short explanation.
+
+Suppose an employee should contain:
+
+Name
+Email
+Department
+Role
+Status
+
+A Schema describes what an employee document should look like.
+
+Conceptually:
+
+Employee
+│
+├── name        → string, required
+├── email       → string, required
+├── department  → string, required
+├── role        → string, required
+└── status      → string
+
+A Model gives our Node application a way to work with those employee documents.
+
+For example, later we'll be able to do:
+
+Employee.create(...)
+
+and:
+
+Employee.find()
+
+Think:
+
+Schema
+   ↓
+"What does Employee data look like?"
+
+Model
+   ↓
+"Let me create/read/update/delete Employees."
+
+MongoDB
+   ↓
+"Store the actual Employee documents."
+
+That's enough theory.
+
+2.23.2 — Create models Folder
+
+Go to VS Code.
+
+Inside:
+
+server/src
+
+create a new folder:
+
+models
+Exact location
+MERN-master-project/
+│
+└── server/
+    └── src/
+        │
+        ├── config/
+        │   └── db.ts
+        │
+        ├── models/                 ← CREATE
+        │
+        └── index.ts
+2.23.3 — Create Employee Model File
+
+Right-click:
+
+server/src/models
+
+Create:
+
+employee.model.ts
+
+Now:
+
+server/
+└── src/
+    ├── config/
+    │   └── db.ts
+    │
+    ├── models/
+    │   └── employee.model.ts      ← HERE
+    │
+    └── index.ts
+2.23.4 — Create Employee Type
+
+📍 Open:
+
+server/src/models/employee.model.ts
+
+Add:
+
+import mongoose, { Schema } from "mongoose";
+
+interface IEmployee {
+  name: string;
+  email: string;
+  department: string;
+  role: string;
+  status: "active" | "inactive";
+}
+
+Don't worry about mastering this TypeScript syntax now.
+
+We will cover it deeply in the TypeScript phase.
+
+For now understand:
+
+interface IEmployee
+
+describes the TypeScript shape of an employee.
+
+For example, this is valid:
+
+{
+  name: "Rahul",
+  email: "rahul@test.com",
+  department: "Engineering",
+  role: "Developer",
+  status: "active"
+}
+
+But:
+
+status: "sleeping"
+
+doesn't match our intended TypeScript type.
+
+Because we allowed only:
+
+"active" | "inactive"
+2.23.5 — Create Mongoose Schema
+
+Below the interface add:
+
+const employeeSchema = new Schema<IEmployee>(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
+
+    department: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+    role: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+    status: {
+      type: String,
+      enum: ["active", "inactive"],
+      default: "active",
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+Let's understand the important parts.
+
+type: String
+name: {
+  type: String
+}
+
+means Mongo/Mongoose expects:
+
+name → String
+
+For example:
+
+Rahul
+Priya
+Amar
+required: true
+required: true
+
+means this field must be provided.
+
+So:
+
+{
+  "name": "Rahul"
+}
+
+has a name.
+
+But if a required field is missing, Mongoose validation can reject the document.
+
+trim: true
+
+Suppose someone sends:
+
+"    Rahul    "
+
+trim removes leading/trailing whitespace, resulting in:
+
+"Rahul"
+unique: true
+
+For email:
+
+unique: true
+
+helps establish a unique index so duplicate email values are not allowed by MongoDB once the index exists.
+
+We'll later learn an important interview point:
+
+unique: true is not the same thing as a normal Mongoose validator.
+
+We'll handle duplicate-key errors properly when we build production APIs.
+
+lowercase: true
+
+Suppose the frontend sends:
+
+RAHUL@TEST.COM
+
+Mongoose can store:
+
+rahul@test.com
+
+This helps normalize email values.
+
+enum
+
+We wrote:
+
+enum: ["active", "inactive"]
+
+Therefore we expect:
+
+active
+
+or:
+
+inactive
+
+rather than arbitrary status values.
+
+default
+default: "active"
+
+means if we don't send:
+
+{
+  "status": "active"
+}
+
+Mongoose will use active by default.
+
+timestamps
+
+We wrote:
+
+{
+  timestamps: true
+}
+
+Mongoose automatically manages:
+
+createdAt
+updatedAt
+
+So we don't need to manually create them.
+
+2.23.6 — Create Employee Model
+
+At the bottom of the same file add:
+
+export const Employee = mongoose.model<IEmployee>(
+  "Employee",
+  employeeSchema
+);
+
+Your complete file should now be:
+
+import mongoose, { Schema } from "mongoose";
+
+interface IEmployee {
+  name: string;
+  email: string;
+  department: string;
+  role: string;
+  status: "active" | "inactive";
+}
+
+const employeeSchema = new Schema<IEmployee>(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
+
+    department: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+    role: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+    status: {
+      type: String,
+      enum: ["active", "inactive"],
+      default: "active",
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+export const Employee = mongoose.model<IEmployee>(
+  "Employee",
+  employeeSchema
+);
+🧠 What Have We Created?
+
+We haven't created an employee yet.
+
+We've created the definition/model that our application will use.
+
+IEmployee
+     │
+     │ TypeScript
+     ▼
+Developer-side type safety
+
+
+employeeSchema
+     │
+     │ Mongoose
+     ▼
+Database document structure/configuration
+
+
+Employee Model
+     │
+     ▼
+Employee.create()
+Employee.find()
+Employee.findById()
+...
+2.23.7 — Create Our First POST API
+
+For this first learning example, we'll put the API directly in index.ts.
+
+📍 Open:
+
+server/src/index.ts
+
+First import our Employee model:
+
+import { Employee } from "./models/employee.model.js";
+
+Place it with your other imports.
+
+Now, below the health route and before startServer, add:
+
+app.post("/api/employees", async (req, res) => {
+  try {
+    const employee = await Employee.create(req.body);
+
+    res.status(201).json({
+      success: true,
+      message: "Employee created successfully",
+      data: employee,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to create employee",
+    });
+  }
+});
+2.23.8 — Understand the Flow
+
+When someone sends:
+
+POST /api/employees
+
+with:
+
+{
+  "name": "Rahul Sharma",
+  "email": "rahul@test.com",
+  "department": "Engineering",
+  "role": "Developer"
+}
+
+Express gives us the request body through:
+
+req.body
+
+because earlier we added:
+
+app.use(express.json());
+
+Then:
+
+Employee.create(req.body);
+
+means:
+
+Create an Employee document using this request data and save it to MongoDB.
+
+The flow is:
+
+POST /api/employees
+        ↓
+Express
+        ↓
+req.body
+        ↓
+Employee.create()
+        ↓
+Mongoose Schema
+        ↓
+MongoDB
+        ↓
+Document created
+2.23.9 — Why 201?
+
+We wrote:
+
+res.status(201)
+
+201 Created means:
+
+The request successfully created a new resource.
+
+So:
+
+200 → Successful request
+
+201 → Resource successfully created
+
+You'll learn status codes properly later.
+
+2.23.10 — Test with Postman
+
+We're deliberately testing the backend before building the React form.
+
+This is a very useful development habit:
+
+Build API
+   ↓
+Test API independently
+   ↓
+Confirm backend works
+   ↓
+Connect frontend
+
+Open Postman.
+
+Create a new request.
+
+Method:
+
+POST
+
+URL:
+
+http://localhost:5000/api/employees
+
+Choose:
+
+Body → raw → JSON
+
+Enter:
+
+{
+  "name": "Rahul Sharma",
+  "email": "rahul@test.com",
+  "department": "Engineering",
+  "role": "Developer"
+}
+
+Click Send.
+
+Expected Response
+
+You should receive something similar to:
+
+{
+  "success": true,
+  "message": "Employee created successfully",
+  "data": {
+    "name": "Rahul Sharma",
+    "email": "rahul@test.com",
+    "department": "Engineering",
+    "role": "Developer",
+    "status": "active",
+    "_id": "...",
+    "createdAt": "...",
+    "updatedAt": "...",
+    "__v": 0
+  }
+}
+
+Notice something important.
+
+We did not send:
+
+{
+  "status": "active"
+}
+
+But MongoDB contains it because our schema has:
+
+default: "active"
+
+We also didn't send:
+
+_id
+createdAt
+updatedAt
+
+Those were generated for us.
+
+2.23.11 — Check MongoDB Atlas
+
+Now go back to MongoDB Atlas and open your database/browse collections view.
+
+After the first successful insert, you should find something conceptually like:
+
+mern_master
+     │
+     └── employees
+             │
+             └── Rahul Sharma
+
+Why employees?
+
+Our model is:
+
+mongoose.model("Employee", ...)
+
+Mongoose normally maps that model to a pluralized collection name:
+
+Employee
+   ↓
+employees
+
+Inside it, you should see your actual document.
+
+🎯 This is an important milestone.
+
+You have now manually sent:
+
+Postman
+   ↓
+HTTP POST
+   ↓
+Express
+   ↓
+Mongoose
+   ↓
+MongoDB Atlas
+
+and persisted real data.
+
+⚠️ One Important Thing
+
+Our API is not production quality yet.
+
+For example:
+
+Employee.create(req.body)
+
+blindly passing the entire request body isn't how I want our eventual production architecture to remain.
+
+And:
+
+catch {
+   return 500
+}
+
+for every error is too simplistic.
+
+We're intentionally doing this first so you understand the flow.
+
+Later we'll introduce:
+
+Route
+  ↓
+Validation
+  ↓
+Controller
+  ↓
+Service
+  ↓
+Model / Repository
+  ↓
+Database
+
+with proper:
+
+400 validation errors
+409 duplicate conflicts
+404 not found
+500 unexpected server errors
+
+First understand the machine. Then engineer it properly.
