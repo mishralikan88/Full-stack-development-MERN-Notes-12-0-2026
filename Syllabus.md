@@ -99,32 +99,22 @@ Full-stack coding begins in Phase 1.
 
 2. Development Setup
 
-├── Node.js + npm                    
-       ├── Main project structure           ✅
-       ├── VS Code setup                    ✅
-       ├── Git initialization               ✅
-       ├── .gitignore                       ✅
-       ├── React + TypeScript frontend      ✅
-       ├── Vite                             ✅
-       ├── Node + Express backend           ✅
-       ├── Backend TypeScript setup         ✅
-       ├── Frontend running                 ✅
-       ├── Backend running                  ✅
-       ├── GitHub repository                ✅
-       ├── First commit + push              ✅
-       │
-       ├── React → Express API call         🔄 CURRENT
-       ├── CORS                             🔄 CURRENT
-       │
-       ├── Environment variables            ⏳ NEXT
-       ├── MongoDB + Mongoose setup         ⏳
-       ├── Express → MongoDB connection     ⏳
-       ├── First MongoDB model              ⏳
-       ├── POST → save data                 ⏳
-       ├── GET → retrieve data              ⏳
-       ├── React → API → MongoDB → React    ⏳
-       ├── Debugging setup problems         ⏳
-       └── Quick revision                   ⏳
+├── Node + npm                         ✅
+├── React + TypeScript + Vite          ✅
+├── Express + TypeScript               ✅
+├── Git + GitHub                       ✅
+├── React → Express                    ✅
+├── CORS                               ✅
+├── Environment variables              ✅
+├── MongoDB Atlas + Mongoose           ✅
+├── Database connection                ✅ 
+├── Employee model                     ✅ 
+├── POST /api/employees                ✅ 
+├── Save employee to MongoDB           ✅ 
+├── GET employees from MongoDB         ⏳
+├── Show employees in React            ⏳
+├── Full React → API → MongoDB flow    ⏳
+└── Topic 2 quick revision             ⏳
 
 #### PHASE 2 — FRONTEND FOUNDATION
 
