@@ -1411,3 +1411,1401 @@ body
 This is valuable because you're seeing how your HTML becomes the browser's document structure.
 
 
+
+Topic 3 — HTML
+Text & Content 🔄
+
+Semantic HTML is complete. Now we learn the basic elements used to put text and lists inside that structure.
+
+Text & Content
+
+├── h1–h6        ← CURRENT
+├── p
+├── strong
+├── em
+├── br
+├── hr
+├── ul
+├── ol
+└── li
+1. Headings — <h1> to <h6>
+
+HTML provides 6 heading levels:
+
+<h1>Main Heading</h1>
+<h2>Section Heading</h2>
+<h3>Subsection Heading</h3>
+<h4>Smaller Subsection</h4>
+<h5>Lower-level Heading</h5>
+<h6>Lowest-level Heading</h6>
+
+The important thing is not their visual size.
+
+They represent the hierarchy/structure of the content.
+
+Think of a book:
+
+Employee Management                 ← h1
+
+    Employee Statistics             ← h2
+
+        Active Employees            ← h3
+
+        Inactive Employees          ← h3
+
+    Available Jobs                  ← h2
+
+        React Developer             ← h3
+
+        Node.js Developer           ← h3
+
+HTML:
+
+<h1>Employee Management</h1>
+
+<section>
+  <h2>Employee Statistics</h2>
+
+  <h3>Active Employees</h3>
+  <h3>Inactive Employees</h3>
+</section>
+
+<section>
+  <h2>Available Jobs</h2>
+
+  <article>
+    <h3>React Developer</h3>
+  </article>
+
+  <article>
+    <h3>Node.js Developer</h3>
+  </article>
+</section>
+Easy rule
+h1
+│
+├── h2
+│   ├── h3
+│   └── h3
+│
+└── h2
+    ├── h3
+    └── h3
+
+Think:
+
+Heading levels describe content hierarchy.
+
+Don't choose <h3> simply because you like how small it looks. CSS controls appearance later.
+
+2. Paragraph — <p>
+
+p means paragraph.
+
+<p>Welcome to the WorkForge employee management system.</p>
+
+Another example:
+
+<h2>About WorkForge</h2>
+
+<p>
+  WorkForge helps organizations manage employees and projects.
+</p>
+
+Think:
+
+<h2> → Heading
+
+<p>  → Normal paragraph/content
+3. <strong>
+
+strong indicates content with strong importance.
+
+<p>
+  Employee Status:
+  <strong>Active</strong>
+</p>
+
+Browser default styling usually makes it bold:
+
+Employee Status: Active
+
+But remember:
+
+<strong>
+     ↓
+Strong importance
+
+It's semantic meaning, not merely "make text bold."
+
+4. <em>
+
+em means emphasis.
+
+<p>
+  Please submit the form <em>before Friday</em>.
+</p>
+
+Browsers normally display em in italics.
+
+But again:
+
+<em>
+ ↓
+Emphasis
+
+not simply:
+
+make text italic
+
+CSS handles purely visual styling.
+
+5. <br>
+
+br means line break.
+
+<p>
+  Amarnath Mishra<br>
+  UI Developer<br>
+  Bangalore
+</p>
+
+Output conceptually:
+
+Amarnath Mishra
+UI Developer
+Bangalore
+
+br does not need a closing tag:
+
+<br>
+
+or:
+
+<br />
+Don't misuse it
+
+Don't write:
+
+<p>Hello</p>
+<br>
+<br>
+<br>
+<p>Employees</p>
+
+just to create visual spacing.
+
+Later CSS will handle spacing.
+
+Use <br> when a line break is actually part of the content.
+
+6. <hr>
+
+hr represents a thematic break/change between sections of content and is commonly displayed as a horizontal line.
+
+<h2>Active Employees</h2>
+
+<p>105 employees are currently active.</p>
+
+<hr>
+
+<h2>Inactive Employees</h2>
+
+<p>15 employees are currently inactive.</p>
+
+You might see:
+
+Active Employees
+
+105 employees are currently active.
+
+────────────────────────────────
+
+Inactive Employees
+
+15 employees are currently inactive.
+
+Again, don't think only:
+
+hr = draw a line
+
+Its semantic purpose is a thematic break.
+
+7. Lists
+
+HTML has two main types of lists you'll regularly use.
+
+Unordered list — <ul>
+
+Use when order doesn't matter.
+
+<ul>
+  <li>React</li>
+  <li>TypeScript</li>
+  <li>Node.js</li>
+</ul>
+
+Browser:
+
+• React
+• TypeScript
+• Node.js
+
+ul means:
+
+Unordered List
+
+Ordered list — <ol>
+
+Use when order matters.
+
+<ol>
+  <li>Create employee</li>
+  <li>Validate employee data</li>
+  <li>Save employee</li>
+</ol>
+
+Browser:
+
+1. Create employee
+2. Validate employee data
+3. Save employee
+
+ol means:
+
+Ordered List
+
+8. <li>
+
+li means:
+
+List Item
+
+It goes inside ul or ol.
+
+<ul>
+  <li>Dashboard</li>
+  <li>Employees</li>
+  <li>Projects</li>
+</ul>
+
+Think:
+
+UL / OL
+   │
+   ├── LI
+   ├── LI
+   └── LI
+ul vs ol
+
+Very easy:
+
+Does order/sequence matter?
+
+        │
+   ┌────┴────┐
+   │         │
+   NO       YES
+   │         │
+   ▼         ▼
+  <ul>      <ol>
+
+   │         │
+   └────┬────┘
+        ▼
+      <li>
+
+For example:
+
+Skills
+
+React
+Node
+MongoDB
+
+No particular sequence is required.
+
+→ ul
+
+Registration steps
+
+1. Enter details
+2. Verify email
+3. Create account
+
+Sequence matters.
+
+→ ol
+
+
+🛠 Practical
+
+Continue using:
+
+MERN-master-project/
+└── html-practice/
+    └── semantic.html
+
+Inside your existing <main>, add this:
+
+<section>
+
+  <h2>Employee Profile</h2>
+
+  <h3>About</h3>
+
+  <p>
+    Rahul Sharma is a frontend developer working
+    on the WorkForge application.
+  </p>
+
+  <p>
+    Status: <strong>Active</strong>
+  </p>
+
+  <p>
+    Current project: <em>Employee Management System</em>
+  </p>
+
+
+  <h3>Technical Skills</h3>
+
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>React</li>
+  </ul>
+
+
+  <h3>Onboarding Steps</h3>
+
+  <ol>
+    <li>Complete employee registration</li>
+    <li>Verify employee details</li>
+    <li>Assign project</li>
+    <li>Activate employee account</li>
+  </ol>
+
+</section>
+
+Now look at what you just built:
+
+Employee Profile                   ← h2
+
+    About                          ← h3
+
+    Rahul Sharma...               ← p
+
+    Status: Active                ← p + strong
+
+    Current project...            ← p + em
+
+
+    Technical Skills              ← h3
+
+       • HTML                     ← ul + li
+       • CSS
+       • JavaScript
+       • React
+
+
+    Onboarding Steps              ← h3
+
+       1. Registration            ← ol + li
+       2. Verify
+       3. Assign project
+       4. Activate
+
+This also reinforces the Semantic HTML you just completed because the content sits inside a meaningful <section>.
+
+Quick revision
+<h1> - <h6>
+→ Heading hierarchy
+
+<p>
+→ Paragraph
+
+<strong>
+→ Strong importance
+
+<em>
+→ Emphasis
+
+<br>
+→ Line break
+
+<hr>
+→ Thematic break
+
+<ul>
+→ Unordered list
+→ Order doesn't matter
+
+<ol>
+→ Ordered list
+→ Order matters
+
+<li>
+→ List item
+
+
+Topic 3 — HTML
+Links 🔄 CURRENT
+
+Assuming you've completed the Text & Content practical, our progress is:
+
+├── Semantic HTML              ✅
+├── Text & Content             ✅
+├── Links                      🔄 CURRENT
+├── Images                     ⏳
+├── Forms                      ⏳
+├── Labels & Inputs            ⏳
+├── Buttons                    ⏳
+├── Native HTML Validation     ⏳
+├── Tables                     ⏳
+├── Accessibility Basics       ⏳
+├── ARIA Basics                ⏳
+└── SEO / Meta Basics          ⏳
+1. What is a Link?
+
+A link allows the user to navigate from one location to another.
+
+HTML uses the anchor element:
+
+<a>...</a>
+
+Example:
+
+<a href="employees.html">Employees</a>
+
+Think:
+
+<a href="employees.html">Employees</a>
+ │          │              │
+ │          │              └── What user sees/clicks
+ │          │
+ │          └── Where to go
+ │
+ └── Anchor element
+
+href means Hypertext Reference.
+
+2. Basic Link
+<a href="employees.html">View Employees</a>
+
+The user sees:
+
+View Employees
+
+When clicked:
+
+View Employees
+      ↓
+employees.html
+3. Internal Links
+
+An internal link navigates to another page/resource in your own website/application.
+
+Imagine:
+
+html-practice/
+│
+├── index.html
+├── employees.html
+└── contact.html
+
+Inside index.html:
+
+<a href="employees.html">Employees</a>
+<a href="contact.html">Contact</a>
+
+These are internal links.
+
+Your Website
+     │
+     ├── Home
+     ├── Employees
+     └── Contact
+4. External Links
+
+An external link takes the user to another website.
+
+For example:
+
+<a href="https://www.google.com">
+  Google
+</a>
+
+Concept:
+
+Your website
+     ↓
+    Link
+     ↓
+Another website
+
+So:
+
+Internal link
+→ another location/page in your application
+
+External link
+→ another website/domain
+5. Relative vs Absolute Paths ⭐
+
+This is important.
+
+Relative path
+<a href="employees.html">Employees</a>
+
+The location is relative to your current project/file.
+
+Another example:
+
+<a href="pages/employees.html">Employees</a>
+
+Think:
+
+Current location
+      ↓
+Find another file relative to me
+Absolute URL
+<a href="https://www.google.com">Google</a>
+
+It provides the complete address:
+
+https://
+www.google.com
+
+Easy distinction:
+
+RELATIVE
+
+employees.html
+pages/employees.html
+../index.html
+
+Used relative to current file/location.
+
+
+ABSOLUTE
+
+https://www.google.com
+
+Complete URL.
+
+You'll encounter this concept constantly in frontend development.
+
+6. target
+
+Suppose you have:
+
+<a href="https://www.google.com">
+  Google
+</a>
+
+Normally, clicking it navigates in the current browser tab.
+
+You can use:
+
+<a
+  href="https://www.google.com"
+  target="_blank"
+>
+  Google
+</a>
+
+target="_blank" generally opens the destination in a new tab/window browsing context.
+
+Remember:
+
+target="_blank"
+       ↓
+Open in new tab/window
+7. rel Basics
+
+For links opened with _blank, you'll often encounter:
+
+<a
+  href="https://example.com"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  External Website
+</a>
+
+For your current level, don't overcomplicate this.
+
+Know:
+
+rel
+ ↓
+Describes the relationship between
+the current page and linked resource.
+
+noopener prevents the newly opened page from getting access to the original page through window.opener in browsers where that relationship exists.
+
+noreferrer tells the browser not to send referrer information to the destination.
+
+Modern browsers already provide important protections for _blank, but you'll still commonly see these values in code.
+
+8. Link to a Section on the Same Page
+
+Links don't have to open another page.
+
+Suppose:
+
+<a href="#contact">Go to Contact</a>
+
+Later:
+
+<section id="contact">
+  <h2>Contact Us</h2>
+</section>
+
+The connection is:
+
+href="#contact"
+       │
+       ▼
+id="contact"
+
+Clicking the link moves to that section.
+
+This is called a fragment/anchor link.
+
+9. Email Link
+
+HTML supports:
+
+<a href="mailto:hr@example.com">
+  Email HR
+</a>
+
+Clicking it can open the user's configured email application.
+
+mailto:
+   ↓
+Email address
+10. Telephone Link
+
+You can also write:
+
+<a href="tel:+919876543210">
+  Call HR
+</a>
+
+Especially useful on mobile devices.
+
+tel:
+ ↓
+Telephone number
+11. Accessible Link Text
+
+Avoid vague links like:
+
+<a href="employees.html">Click here</a>
+
+If someone only hears:
+
+"Click here"
+
+they don't know what it does.
+
+Better:
+
+<a href="employees.html">
+  View Employees
+</a>
+
+Now the link explains its destination/action.
+
+❌ Click here
+
+✅ View Employees
+✅ View employee details
+✅ Read project documentation
+
+We'll go deeper into this under Accessibility Basics.
+
+12. Link vs Button — Small Introduction
+
+This becomes important later.
+
+Use a link when the user is navigating somewhere:
+
+<a href="employees.html">
+  View Employees
+</a>
+
+Use a button when the user is performing an action:
+
+<button>
+  Save Employee
+</button>
+
+Memory:
+
+LINK
+→ GO somewhere
+
+BUTTON
+→ DO something
+
+We'll properly cover this in the Buttons section.
+
+🛠 Practical
+
+Continue in your:
+
+html-practice/
+└── semantic.html
+
+Add a navigation section:
+
+<nav>
+  <a href="#dashboard">Dashboard</a>
+  <a href="#employees">Employees</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+Then inside your <main>:
+
+<main>
+
+  <section id="dashboard">
+    <h2>Dashboard</h2>
+    <p>Welcome to the WorkForge dashboard.</p>
+  </section>
+
+
+  <section id="employees">
+    <h2>Employees</h2>
+    <p>Manage company employees here.</p>
+  </section>
+
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <p>View company projects here.</p>
+  </section>
+
+
+  <section id="contact">
+    <h2>Contact</h2>
+
+    <p>
+      Email:
+      <a href="mailto:hr@example.com">
+        hr@example.com
+      </a>
+    </p>
+
+    <p>
+      Phone:
+      <a href="tel:+919876543210">
+        +91 98765 43210
+      </a>
+    </p>
+  </section>
+
+</main>
+
+Now run it in your browser.
+
+Click:
+
+Dashboard
+Employees
+Projects
+Contact
+
+Notice how:
+
+<a href="#employees">
+
+connects to:
+
+<section id="employees">
+
+That's the important practical concept.
+
+🧪 Small Independent Task
+
+Without copying another solution, add this below your page:
+
+Company Resources
+
+• Visit MDN Documentation
+• Contact Support
+
+Requirements:
+
+Visit MDN Documentation
+→ external link
+→ open in new tab
+
+Contact Support
+→ email link
+
+You decide the correct href, target, and rel.
+
+Quick Revision
+<a>
+→ Anchor/link element
+
+href
+→ Destination
+
+Internal link
+→ Navigate within your website/application
+
+External link
+→ Navigate to another website
+
+Relative path
+→ Location relative to current file
+
+Absolute URL
+→ Complete URL
+
+target="_blank"
+→ Open in new tab/window
+
+rel
+→ Relationship/security/privacy information
+
+#section
+→ Navigate within same page
+
+mailto:
+→ Email link
+
+tel:
+→ Telephone link
+
+Good link text
+→ Clearly describes destination
+
+LINK
+→ GO somewhere
+
+BUTTON
+→ DO something
+
+
+Topic 3 — HTML
+Images 🔄 CURRENT
+
+Assuming you completed the Links practical:
+
+├── Semantic HTML              ✅
+├── Text & Content             ✅
+├── Links                      ✅
+├── Images                     🔄 CURRENT
+├── Forms                      ⏳
+├── Labels & Inputs            ⏳
+├── Buttons                    ⏳
+├── Native HTML Validation     ⏳
+├── Tables                     ⏳
+├── Accessibility Basics       ⏳
+├── ARIA Basics                ⏳
+└── SEO / Meta Basics          ⏳
+
+For Images, we need to understand:
+
+├── <img>
+├── src
+├── alt
+├── width / height basics
+├── Relative image paths
+├── Decorative vs informative images
+├── <figure>
+└── <figcaption>
+1. <img> — Image Element
+
+HTML uses <img> to display an image.
+
+<img src="employee.jpg" alt="Employee profile" />
+
+Unlike elements such as:
+
+<p></p>
+<section></section>
+
+img doesn't wrap content and doesn't have a closing </img> tag.
+
+So:
+
+<img src="employee.jpg" alt="Employee profile" />
+
+Think:
+
+<img>
+  │
+  ├── src → WHERE is the image?
+  │
+  └── alt → WHAT does the image represent?
+2. src
+
+src means source.
+
+It tells the browser where the image is located.
+
+Suppose your files are:
+
+html-practice/
+│
+├── semantic.html
+│
+└── employee.jpg
+
+You can write:
+
+<img src="employee.jpg" alt="Employee profile" />
+
+Browser:
+
+semantic.html
+      │
+      └── Find employee.jpg
+              ↓
+         Display image
+3. Relative Image Paths ⭐
+
+Suppose we organize things better:
+
+html-practice/
+│
+├── semantic.html
+│
+└── images/
+    ├── employee.jpg
+    └── company-logo.png
+
+From semantic.html, the employee image is inside images.
+
+Therefore:
+
+<img
+  src="images/employee.jpg"
+  alt="Employee profile"
+/>
+
+Think:
+
+semantic.html
+     │
+     └── images/
+           │
+           └── employee.jpg
+
+This is a relative path, just like what we learned with links.
+
+4. alt ⭐ VERY IMPORTANT
+
+alt means alternative text.
+
+Example:
+
+<img
+  src="images/employee.jpg"
+  alt="Rahul Sharma, frontend developer"
+/>
+
+The alt text describes the meaningful information conveyed by the image when the image can't be seen, including for users of screen readers.
+
+Think:
+
+IMAGE
+  ↓
+Can user see/use image?
+  │
+  ├── YES → Image
+  │
+  └── NO  → Alternative text can convey its meaning
+
+This becomes especially important when we study Accessibility.
+
+5. Bad vs Good alt
+
+Suppose the image shows an employee named Rahul Sharma.
+
+Poor:
+
+<img
+  src="images/rahul.jpg"
+  alt="image"
+/>
+
+Also usually poor:
+
+<img
+  src="images/rahul.jpg"
+  alt="photo"
+/>
+
+Better:
+
+<img
+  src="images/rahul.jpg"
+  alt="Rahul Sharma, frontend developer"
+/>
+
+The text should communicate the image's purpose/context, not mechanically describe every visual detail.
+
+6. Decorative Images
+
+Here's an important exception.
+
+Suppose an image exists only for decoration and communicates no useful information.
+
+Then you can use an empty alt:
+
+<img
+  src="images/decoration.png"
+  alt=""
+/>
+
+Why?
+
+Because accessibility tools don't need to announce meaningless decoration.
+
+So remember:
+
+INFORMATIVE IMAGE
+        ↓
+Meaningful alt text
+
+<img src="employee.jpg"
+     alt="Rahul Sharma, frontend developer">
+
+
+DECORATIVE IMAGE
+        ↓
+Empty alt
+
+<img src="decoration.png"
+     alt="">
+
+Don't omit alt just because you don't know what to write.
+
+7. Width and Height
+
+You can provide intrinsic dimensions:
+
+<img
+  src="images/employee.jpg"
+  alt="Rahul Sharma, frontend developer"
+  width="300"
+  height="300"
+/>
+
+Conceptually:
+
+width="300"
+→ 300 CSS pixels as the image's intrinsic display width
+
+height="300"
+→ 300 CSS pixels as the image's intrinsic display height
+
+Later, CSS will handle responsive image sizing and visual design.
+
+For now, understand the attributes.
+
+Providing appropriate width and height can also help the browser reserve space before the image finishes loading, reducing layout movement.
+
+8. <figure>
+
+Sometimes an image and its caption belong together.
+
+Example:
+
+<figure>
+
+  <img
+    src="images/employee.jpg"
+    alt="Rahul Sharma, frontend developer"
+    width="300"
+  />
+
+  <figcaption>
+    Rahul Sharma — Frontend Developer
+  </figcaption>
+
+</figure>
+
+figure groups self-contained media/content with an optional caption.
+
+Think:
+
+FIGURE
+│
+├── IMAGE
+│
+└── CAPTION
+9. <figcaption>
+
+figcaption provides the caption for the figure.
+
+Example:
+
+<figure>
+
+  <img
+    src="images/dashboard.png"
+    alt="WorkForge employee dashboard"
+  />
+
+  <figcaption>
+    WorkForge Employee Dashboard
+  </figcaption>
+
+</figure>
+
+Conceptually:
+
+┌───────────────────────────────┐
+│                               │
+│        DASHBOARD IMAGE        │
+│                               │
+└───────────────────────────────┘
+
+ WorkForge Employee Dashboard
+            ↑
+       figcaption
+10. alt vs figcaption ⭐
+
+Don't confuse these.
+
+alt
+ ↓
+Text alternative for the IMAGE
+
+
+figcaption
+ ↓
+Visible caption associated with the FIGURE
+
+Example:
+
+<figure>
+
+  <img
+    src="images/rahul.jpg"
+    alt="Rahul Sharma presenting the WorkForge dashboard"
+  />
+
+  <figcaption>
+    WorkForge product demonstration — August 2026
+  </figcaption>
+
+</figure>
+
+They can provide different information.
+
+The caption is visible.
+
+The alt describes/conveys the image's relevant meaning.
+
+11. Image Inside a Link
+
+Images can also be clickable.
+
+For example, a company logo that navigates home:
+
+<a href="index.html">
+
+  <img
+    src="images/logo.png"
+    alt="WorkForge home"
+  />
+
+</a>
+
+Now:
+
+IMAGE
+  ↓
+inside
+  ↓
+LINK
+  ↓
+click
+  ↓
+Home
+
+Notice how our HTML topics start connecting.
+
+12. Practical Folder Structure
+
+Inside your existing practice folder, create:
+
+MERN-master-project/
+│
+└── html-practice/
+    │
+    ├── semantic.html
+    │
+    └── images/
+        └── employee.jpg
+
+Use any normal practice image and rename it:
+
+employee.jpg
+
+Make sure the actual file format is JPEG. Don't simply rename a .png file's extension.
+
+🛠 Practical — Employee Profile
+
+Inside your existing <main>, add:
+
+<section>
+
+  <h2>Employee Profile</h2>
+
+  <figure>
+
+    <img
+      src="images/employee.jpg"
+      alt="Employee profile photo"
+      width="250"
+      height="250"
+    />
+
+    <figcaption>
+      Rahul Sharma — Frontend Developer
+    </figcaption>
+
+  </figure>
+
+  <p>
+    Rahul works on the WorkForge frontend application.
+  </p>
+
+</section>
+
+Run the page.
+
+You should see roughly:
+
+Employee Profile
+
+┌──────────────────────────┐
+│                          │
+│      EMPLOYEE IMAGE      │
+│                          │
+└──────────────────────────┘
+
+Rahul Sharma — Frontend Developer
+
+Rahul works on the WorkForge
+frontend application.
+🧪 Important Experiment
+
+Temporarily change:
+
+src="images/employee.jpg"
+
+to:
+
+src="images/not-found.jpg"
+
+Refresh the browser.
+
+The image can't load.
+
+Now inspect what happens and notice why:
+
+alt="Employee profile photo"
+
+matters.
+
+Then change the src back.
+
+This is an easy way to understand alt instead of merely memorizing its definition.
+
+🛠 Independent Challenge
+
+Create another section yourself:
+
+Company Office
+
+[office image]
+
+WorkForge Development Center
+
+Requirements:
+
+<section>
+     ↓
+<figure>
+     ↓
+<img>
+     ↓
+<figcaption>
+
+You must decide:
+
+correct src
+useful alt
+width/height
+appropriate caption
+
+Don't copy my Employee Profile example blindly—build this one yourself.
+
+Quick Revision
+<img>
+→ Displays an image
+
+src
+→ Image location/source
+
+alt
+→ Text alternative conveying image meaning/purpose
+
+Informative image
+→ Meaningful alt
+
+Decorative image
+→ alt=""
+
+width / height
+→ Image dimensions/intrinsic sizing information
+
+Relative path
+→ images/employee.jpg
+
+<figure>
+→ Groups media/content with its caption
+
+<figcaption>
+→ Caption for figure
+Most important interview points
+
+What does alt do?
+It provides a text alternative for an image, especially important for accessibility and when an image can't be displayed.
+
+alt vs figcaption?
+
+alt
+→ alternative text for image
+
+figcaption
+→ visible caption for figure
+
+Informative vs decorative image?
+
+Informative → meaningful alt
+
+Decorative → alt=""
+
+Once you've completed the practical and independent challenge, Images = ✅.
+
+
+
+
+
+

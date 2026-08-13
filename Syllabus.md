@@ -118,15 +118,16 @@ DO IT WITHOUT HELP
 
 PHASE 2 — FRONTEND FOUNDATION
 
+PHASE 2 — FRONTEND FOUNDATION
+
 3. HTML — Practical Foundation
 
-├── Semantic HTML                        
+├── Semantic HTML                         ✅ COMPLETE
 │   ├── Basic document structure          ✅
 │   │   ├── <!DOCTYPE html>               ✅
 │   │   ├── html                          ✅
 │   │   ├── head                          ✅
 │   │   └── body                          ✅
-│   │
 │   ├── header                            ✅
 │   ├── nav                               ✅
 │   ├── main                              ✅
@@ -138,40 +139,50 @@ PHASE 2 — FRONTEND FOUNDATION
 │   ├── span                              ✅
 │   ├── section vs article                ✅
 │   ├── Complete page skeleton            ✅
-│   ├── Guided semantic HTML practical    ✅
-│   ├── Inspect DOM in browser            ✅
-│   └── Independent semantic challenge    ✅
+│   ├── Guided practical                  ✅
+│   ├── Inspect DOM                       ✅
+│   └── Independent challenge             ✅
 │
-├── Text & Content                        ⏳ NEXT
-│   ├── h1–h6
-│   ├── p
-│   ├── strong
-│   ├── em
-│   ├── br
-│   ├── hr
-│   ├── ul
-│   ├── ol
-│   └── li
+├── Text & Content                        ✅ COMPLETE
+│   ├── h1–h6                             ✅
+│   ├── p                                 ✅
+│   ├── strong                            ✅
+│   ├── em                                ✅
+│   ├── br                                ✅
+│   ├── hr                                ✅
+│   ├── ul                                ✅
+│   ├── ol                                ✅
+│   └── li                                ✅
 │
-├── Links                                 ⏳
-│   ├── a
-│   ├── href
-│   ├── Internal / external links
-│   ├── Relative / absolute paths
-│   ├── target
-│   └── rel basics
+├── Links                                 ✅ COMPLETE
+│   ├── a                                 ✅
+│   ├── href                              ✅
+│   ├── Internal / external links         ✅
+│   ├── Relative / absolute paths         ✅
+│   ├── target                            ✅
+│   ├── rel basics                        ✅
+│   ├── Same-page links                   ✅
+│   ├── mailto                            ✅
+│   ├── tel                               ✅
+│   └── Accessible link text              ✅
 │
-├── Images                                ⏳
-│   ├── img
-│   ├── src
-│   ├── alt
-│   ├── width / height basics
-│   ├── figure
-│   └── figcaption
+├── Images                                ✅ COMPLETE
+│   ├── img                               ✅
+│   ├── src                               ✅
+│   ├── alt                               ✅
+│   ├── Relative image paths              ✅
+│   ├── width / height basics             ✅
+│   ├── Informative images                ✅
+│   ├── Decorative images                 ✅
+│   ├── figure                            ✅
+│   ├── figcaption                        ✅
+│   └── alt vs figcaption                 ✅
 │
-├── Forms                                 ⏳
+├── Forms                                 ⏳ NEXT
 │   ├── form
 │   ├── action / method basics
+│   ├── GET vs POST basics
+│   ├── name
 │   ├── fieldset
 │   ├── legend
 │   └── Form submission basics
@@ -1167,6 +1178,7 @@ Debugging
 Async
 Polyfills
 Practical problems
+
 32. React Interview
 Hooks
 Coding
@@ -1174,6 +1186,7 @@ Architecture
 State
 Performance
 Debugging
+
 33. Backend Interview
 Node
 Express
@@ -1183,6 +1196,7 @@ Authentication
 Security
 Performance
 Coding
+
 34. System Design
 
 Practice:
@@ -1208,6 +1222,7 @@ WebSockets
 Object storage
 Monolith vs microservices
 Observability
+
 35. DSA for Interviews
 
 Focus on useful patterns:
@@ -1281,7 +1296,7 @@ Scope creep
 Bug handling
 Production support
 Documentation
-Handover
+Hrandove
 Maintenance
 
 We'll simulate actual clients.
