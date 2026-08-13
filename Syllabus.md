@@ -116,93 +116,237 @@ DO IT WITHOUT HELP
 
 #### PHASE 2 — FRONTEND FOUNDATION
 
-3. HTML
+PHASE 2 — FRONTEND FOUNDATION
 
-Only practical HTML needed for professional frontend work.
+3. HTML — Practical Foundation
 
-Semantic HTML
-Forms
-Inputs
-Tables
-Images
-Links
-Buttons
-Labels
-Validation
-Accessibility basics
-ARIA basics
-SEO/meta basics
-🛠 Build
-Login
-Registration
-Profile
-Contact form
-Employee form
-Data table
-Dashboard structure
+├── Semantic HTML                        
+│   ├── Basic document structure          ✅
+│   │   ├── <!DOCTYPE html>               ✅
+│   │   ├── html                          ✅
+│   │   ├── head                          ✅
+│   │   └── body                          ✅
+│   │
+│   ├── header                            ✅
+│   ├── nav                               ✅
+│   ├── main                              ✅
+│   ├── section                           ✅
+│   ├── article                           ✅
+│   ├── aside                             ✅
+│   ├── footer                            ✅
+│   ├── div                               ✅
+│   ├── span                              ✅
+│   ├── section vs article                ✅
+│   ├── Complete page skeleton            ✅
+│   ├── Guided semantic HTML practical    ✅
+│   ├── Inspect DOM in browser            ✅
+│   └── Independent semantic challenge    ✅
+│
+├── Text & Content                        ⏳ NEXT
+│   ├── h1–h6
+│   ├── p
+│   ├── strong
+│   ├── em
+│   ├── br
+│   ├── hr
+│   ├── ul
+│   ├── ol
+│   └── li
+│
+├── Links                                 ⏳
+│   ├── a
+│   ├── href
+│   ├── Internal / external links
+│   ├── Relative / absolute paths
+│   ├── target
+│   └── rel basics
+│
+├── Images                                ⏳
+│   ├── img
+│   ├── src
+│   ├── alt
+│   ├── width / height basics
+│   ├── figure
+│   └── figcaption
+│
+├── Forms                                 ⏳
+│   ├── form
+│   ├── action / method basics
+│   ├── fieldset
+│   ├── legend
+│   └── Form submission basics
+│
+├── Labels & Inputs                       ⏳
+│   ├── label
+│   ├── for / id
+│   ├── name / value
+│   ├── placeholder
+│   ├── text
+│   ├── email
+│   ├── password
+│   ├── number
+│   ├── tel
+│   ├── date
+│   ├── checkbox
+│   ├── radio
+│   ├── file
+│   ├── textarea
+│   ├── select / option
+│   └── disabled / readonly
+│
+├── Buttons                               ⏳
+│   ├── button
+│   ├── submit
+│   ├── reset
+│   ├── type="button"
+│   └── button vs link
+│
+├── Native HTML Validation                ⏳
+│   ├── required
+│   ├── minlength / maxlength
+│   ├── min / max
+│   ├── step
+│   ├── pattern basics
+│   └── Input type validation
+│
+├── Tables                                ⏳
+│   ├── table
+│   ├── caption
+│   ├── thead
+│   ├── tbody
+│   ├── tfoot basics
+│   ├── tr
+│   ├── th
+│   ├── td
+│   ├── scope basics
+│   ├── colspan
+│   └── rowspan
+│
+├── Accessibility Basics                  ⏳
+│   ├── Semantic HTML
+│   ├── Heading hierarchy
+│   ├── Form labels
+│   ├── Image alt text
+│   ├── Accessible links
+│   ├── Button vs link semantics
+│   ├── Keyboard accessibility basics
+│   └── Focus basics
+│
+├── ARIA Basics                           ⏳
+│   ├── What / why ARIA
+│   ├── When to use ARIA
+│   ├── When NOT to use ARIA
+│   ├── role basics
+│   ├── aria-label
+│   ├── aria-labelledby
+│   ├── aria-describedby
+│   ├── aria-expanded
+│   ├── aria-hidden basics
+│   └── aria-live basics
+│
+└── SEO / Meta Basics                     ⏳
+    ├── title
+    ├── meta charset
+    ├── viewport
+    ├── meta description
+    ├── Heading hierarchy
+    ├── Semantic structure
+    ├── Image alt text
+    └── Descriptive links
 
+
+🛠 FINAL HTML BUILDS
+
+├── Semantic dashboard skeleton           ✅
+├── Login form                            ⏳
+├── Registration form                     ⏳
+├── Contact form                          ⏳
+├── Profile page                          ⏳
+├── Employee form                         ⏳
+├── Employee data table                   ⏳
+├── Complete dashboard structure          ⏳
+└── Final HTML challenge                  ⏳
+
+
+🎯 INTERVIEW + INDEPENDENCE
+
+├── Semantic HTML questions               ✅
+├── section vs article                    ✅
+├── div vs semantic elements              ✅
+├── Form / input questions                ⏳
+├── Button vs link                        ⏳
+├── Validation questions                  ⏳
+├── Accessibility / ARIA questions        ⏳
+├── Debug incorrect HTML                  ⏳
+├── Build from requirement without help   ⏳
+└── Topic 3 quick revision + images       ⏳
 
 4. CSS
-Core
-Box model
-Selectors
-Specificity
-Cascade
-Units
-width/height
-overflow
-Layout
-display
-position
-Flexbox
-Grid
-z-index
-stacking
-Responsive
-Media queries
-mobile-first
-responsive units
-min/max
-clamp()
+
+CORE
+├── Box model
+├── Selectors
+├── Specificity
+├── Cascade
+├── Units
+├── width / height
+└── overflow
+
+LAYOUT
+├── display
+├── position
+├── Flexbox
+├── Grid
+├── z-index
+└── stacking
+
+RESPONSIVE
+├── Media queries
+├── mobile-first
+├── responsive units
+├── min / max
+└── clamp()
+
 UI
-Typography
-Borders
-Shadows
-Pseudo selectors
-Transitions
-Transform
-Animations
-CSS variables
-🛠 Build
+├── Typography
+├── Borders
+├── Shadows
+├── Pseudo selectors
+├── Transitions
+├── Transform
+├── Animations
+└── CSS variables
 
-From screenshots:
-
-Navbar
-Sidebar
-Login page
-Dashboard
-Cards
-Modal
-Responsive table
-Responsive form
-Landing page
+🛠 BUILD FROM SCREENSHOTS
+├── Navbar
+├── Sidebar
+├── Login page
+├── Dashboard
+├── Cards
+├── Modal
+├── Responsive table
+├── Responsive form
+└── Landing page
 
 
 5. Tailwind CSS
-Setup
-Utility classes
-Spacing
-Sizing
-Typography
-Flex
-Grid
-Responsive breakpoints
-States
-Dark mode
-Themes
-Reusable styling patterns
-🛠 Build
-Rebuild one complete responsive dashboard using Tailwind.
+
+├── Setup
+├── Utility classes
+├── Spacing
+├── Sizing
+├── Typography
+├── Flex
+├── Grid
+├── Responsive breakpoints
+├── States
+├── Dark mode
+├── Themes
+└── Reusable styling patterns
+
+🛠 BUILD
+└── Rebuild one complete responsive
+    dashboard using Tailwind CSS
 
 #### PHASE 3 — JAVASCRIPT
 
@@ -492,6 +636,7 @@ Mutations
 Cache
 Invalidation
 Optimistic updates
+
 16. React Architecture & Performance
 Feature-based architecture
 Reusable components
