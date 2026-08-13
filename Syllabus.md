@@ -118,8 +118,6 @@ DO IT WITHOUT HELP
 
 PHASE 2 — FRONTEND FOUNDATION
 
-PHASE 2 — FRONTEND FOUNDATION
-
 3. HTML — Practical Foundation
 
 ├── Semantic HTML                         ✅ COMPLETE
@@ -140,7 +138,7 @@ PHASE 2 — FRONTEND FOUNDATION
 │   ├── section vs article                ✅
 │   ├── Complete page skeleton            ✅
 │   ├── Guided practical                  ✅
-│   ├── Inspect DOM                       ✅
+│   ├── DOM inspection                    ✅
 │   └── Independent challenge             ✅
 │
 ├── Text & Content                        ✅ COMPLETE
@@ -148,69 +146,64 @@ PHASE 2 — FRONTEND FOUNDATION
 │   ├── p                                 ✅
 │   ├── strong                            ✅
 │   ├── em                                ✅
-│   ├── br                                ✅
-│   ├── hr                                ✅
-│   ├── ul                                ✅
-│   ├── ol                                ✅
-│   └── li                                ✅
+│   ├── br / hr                           ✅
+│   └── ul / ol / li                      ✅
 │
 ├── Links                                 ✅ COMPLETE
-│   ├── a                                 ✅
-│   ├── href                              ✅
+│   ├── a / href                          ✅
 │   ├── Internal / external links         ✅
 │   ├── Relative / absolute paths         ✅
 │   ├── target                            ✅
 │   ├── rel basics                        ✅
 │   ├── Same-page links                   ✅
-│   ├── mailto                            ✅
-│   ├── tel                               ✅
+│   ├── mailto / tel                      ✅
 │   └── Accessible link text              ✅
 │
 ├── Images                                ✅ COMPLETE
-│   ├── img                               ✅
-│   ├── src                               ✅
+│   ├── img / src                         ✅
 │   ├── alt                               ✅
-│   ├── Relative image paths              ✅
-│   ├── width / height basics             ✅
-│   ├── Informative images                ✅
-│   ├── Decorative images                 ✅
+│   ├── Relative paths                    ✅
+│   ├── width / height                    ✅
+│   ├── Informative vs decorative         ✅
 │   ├── figure                            ✅
 │   ├── figcaption                        ✅
 │   └── alt vs figcaption                 ✅
 │
-├── Forms                                 ⏳ NEXT
-│   ├── form
-│   ├── action / method basics
-│   ├── GET vs POST basics
-│   ├── name
-│   ├── fieldset
-│   ├── legend
-│   └── Form submission basics
+├── Forms                                 ✅ COMPLETE
+│   ├── form                              ✅
+│   ├── action                            ✅
+│   ├── method                            ✅
+│   ├── GET vs POST                       ✅
+│   ├── name                              ✅
+│   ├── fieldset                          ✅
+│   ├── legend                            ✅
+│   └── Form submission basics            ✅
 │
-├── Labels & Inputs                       ⏳
-│   ├── label
-│   ├── for / id
-│   ├── name / value
-│   ├── placeholder
-│   ├── text
-│   ├── email
-│   ├── password
-│   ├── number
-│   ├── tel
-│   ├── date
-│   ├── checkbox
-│   ├── radio
-│   ├── file
-│   ├── textarea
-│   ├── select / option
-│   └── disabled / readonly
+├── Labels & Inputs                       ✅
+│   ├── label                             ✅
+│   ├── for / id                          ✅
+│   ├── name / value                      ✅
+│   ├── placeholder                       ✅
+│   ├── text                              ✅
+│   ├── email                             ✅
+│   ├── password                          ✅
+│   ├── number                            ✅
+│   ├── tel                               ✅
+│   ├── date                              ✅
+│   ├── checkbox                          ✅
+│   ├── radio                             ✅
+│   ├── file                              ✅
+│   ├── textarea                          ✅
+│   ├── select / option                   ✅
+│   ├── disabled / readonly               ✅
+│   └── Employee Form practical           ✅
 │
-├── Buttons                               ⏳
+├── Buttons                               ⏳ NEXT
 │   ├── button
-│   ├── submit
-│   ├── reset
 │   ├── type="button"
-│   └── button vs link
+│   ├── type="submit"
+│   ├── type="reset"
+│   └── Button vs link
 │
 ├── Native HTML Validation                ⏳
 │   ├── required
@@ -223,47 +216,17 @@ PHASE 2 — FRONTEND FOUNDATION
 ├── Tables                                ⏳
 │   ├── table
 │   ├── caption
-│   ├── thead
-│   ├── tbody
-│   ├── tfoot basics
-│   ├── tr
-│   ├── th
-│   ├── td
+│   ├── thead / tbody / tfoot
+│   ├── tr / th / td
 │   ├── scope basics
 │   ├── colspan
 │   └── rowspan
 │
 ├── Accessibility Basics                  ⏳
-│   ├── Semantic HTML
-│   ├── Heading hierarchy
-│   ├── Form labels
-│   ├── Image alt text
-│   ├── Accessible links
-│   ├── Button vs link semantics
-│   ├── Keyboard accessibility basics
-│   └── Focus basics
 │
 ├── ARIA Basics                           ⏳
-│   ├── What / why ARIA
-│   ├── When to use ARIA
-│   ├── When NOT to use ARIA
-│   ├── role basics
-│   ├── aria-label
-│   ├── aria-labelledby
-│   ├── aria-describedby
-│   ├── aria-expanded
-│   ├── aria-hidden basics
-│   └── aria-live basics
 │
 └── SEO / Meta Basics                     ⏳
-    ├── title
-    ├── meta charset
-    ├── viewport
-    ├── meta description
-    ├── Heading hierarchy
-    ├── Semantic structure
-    ├── Image alt text
-    └── Descriptive links
 
 
 🛠 FINAL HTML BUILDS
@@ -273,7 +236,7 @@ PHASE 2 — FRONTEND FOUNDATION
 ├── Registration form                     ⏳
 ├── Contact form                          ⏳
 ├── Profile page                          ⏳
-├── Employee form                         ⏳
+├── Employee form                         🔄 CURRENT
 ├── Employee data table                   ⏳
 ├── Complete dashboard structure          ⏳
 └── Final HTML challenge                  ⏳

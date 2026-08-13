@@ -2806,6 +2806,1764 @@ Once you've completed the practical and independent challenge, Images = ✅.
 
 
 
+Topic 3 — HTML
+Forms — Restart From Zero 🔄
+
+We'll restart Forms completely, in easy language, and build it gradually. Don't worry about inputs, validation, React, or MongoDB yet.
+
+Our position:
+
+Semantic HTML              ✅
+Text & Content             ✅
+Links                      ✅
+Images                     ✅
+
+Forms                      🔄 CURRENT
+├── What is a form?
+├── <form>
+├── action
+├── method
+├── GET vs POST
+├── name
+├── fieldset
+├── legend
+└── Form submission basics
+
+Labels & Inputs            ⏳ NEXT
+Buttons                    ⏳
+Validation                 ⏳
+Tables                     ⏳
+Accessibility              ⏳
+ARIA                       ⏳
+SEO / Meta                 ⏳
+1. What is a Form?
+
+A form is used to collect information from a user.
+
+Think about a login page:
+
+        LOGIN
+
+Email
+[___________________]
+
+Password
+[___________________]
+
+       [ Login ]
+
+There are three basic things happening:
+
+USER
+ │
+ ├── enters email
+ │
+ ├── enters password
+ │
+ └── clicks Login
+          ↓
+       FORM DATA
+          ↓
+       submitted
+
+Other examples of forms:
+
+Login
+Registration
+Contact Us
+Create Employee
+Edit Employee
+Checkout
+Search
+
+In our MERN project, imagine:
+
+CREATE EMPLOYEE
+
+Name:        [____________]
+
+Email:       [____________]
+
+Department:  [____________]
+
+             [ Create Employee ]
+
+The purpose of this form is to collect employee information.
+
+2. <form>
+
+HTML provides the <form> element:
+
+<form>
+
+</form>
+
+Think of <form> as a container.
+
+Everything related to that particular form normally goes inside it.
+
+For example:
+
+<form>
+
+  <label>Name</label>
+  <input type="text">
+
+  <label>Email</label>
+  <input type="email">
+
+  <button type="submit">
+    Create Employee
+  </button>
+
+</form>
+
+Don't focus on label, input, or button yet.
+
+Just look at the structure:
+
+FORM
+│
+├── Name field
+├── Email field
+│
+└── Submit button
+
+So:
+
+<form> groups controls used to collect and submit user data.
+
+3. What Happens to the Data?
+
+Suppose I enter:
+
+Name
+[ Rahul ]
+
+Email
+[ rahul@gmail.com ]
+
+[ Create Employee ]
+
+The browser now has something conceptually like:
+
+name  → Rahul
+
+email → rahul@gmail.com
+
+When I submit the form:
+
+User
+ ↓
+fills form
+
+Name = Rahul
+Email = rahul@gmail.com
+ ↓
+clicks Create Employee
+ ↓
+FORM SUBMISSION
+ ↓
+Server
+
+And in a full-stack application, that can eventually become:
+
+HTML / React Form
+       ↓
+Employee data
+       ↓
+HTTP Request
+       ↓
+Express API
+       ↓
+Controller
+       ↓
+Mongoose
+       ↓
+MongoDB
+
+You've already seen the later part of this flow in our MERN project. Now we're learning where the data starts.
+
+4. action — WHERE?
+
+Now suppose we want the form to send data somewhere.
+
+HTML gives us action:
+
+<form action="/api/employees">
+
+</form>
+
+action answers one question:
+
+WHERE should this form be submitted?
+
+Here:
+
+action="/api/employees"
+              ↓
+        WHERE TO SEND
+
+So remember:
+
+ACTION = WHERE
+
+For example:
+
+<form action="/login">
+
+means:
+
+Submit to
+    ↓
+/login
+
+And:
+
+<form action="/api/employees">
+
+means:
+
+Submit to
+       ↓
+/api/employees
+5. method — HOW?
+
+We know where.
+
+Now we need to say how.
+
+That's what method does.
+
+<form
+  action="/api/employees"
+  method="post"
+>
+
+Read this as English:
+
+Submit this form to /api/employees using POST.
+
+Easy:
+
+<form
+   │
+   ├── action → WHERE?
+   │
+   └── method → HOW?
+
+This is the easiest way to remember them.
+
+6. GET vs POST
+
+You've already encountered GET and POST in our API work, but let's understand them specifically from the perspective of an HTML form.
+
+GET
+
+Example:
+
+<form action="/search" method="get">
+
+Imagine:
+
+Search Employee
+
+[ Rahul ]
+
+[ Search ]
+
+After submission, you may get a URL like:
+
+/search?name=Rahul
+
+Notice:
+
+name=Rahul
+
+is in the URL.
+
+GET is commonly appropriate for:
+
+Search
+Filters
+Sorting
+Retrieving something
+POST
+
+Now imagine:
+
+CREATE EMPLOYEE
+
+Name:  Rahul
+Email: rahul@gmail.com
+
+[ Create Employee ]
+
+We don't want to represent creation as a search URL like:
+
+/api/employees?name=Rahul&email=...
+
+Instead:
+
+<form
+  action="/api/employees"
+  method="post"
+>
+
+The submitted form data goes in the request body.
+
+Conceptually:
+
+POST /api/employees
+
+Request Body
+      ↓
+name = Rahul
+email = rahul@gmail.com
+
+POST is commonly used for operations such as:
+
+Registration
+Login
+Create Employee
+Submit Contact Form
+Create Order
+GET vs POST — Easy Memory
+              FORM
+                │
+        ┌───────┴───────┐
+        │               │
+       GET             POST
+        │               │
+        ▼               ▼
+ Search / Read       Submit data
+ Filters             Create/process
+        │               │
+        ▼               ▼
+Values generally     Values generally
+in URL query         in request body
+
+For our Employee creation:
+
+Create Employee
+      ↓
+    POST
+7. name — Very Important
+
+Look at:
+
+<input
+  type="text"
+  name="employeeName"
+>
+
+Suppose the user enters:
+
+Rahul
+
+The browser needs to know:
+
+What field does Rahul belong to?
+
+That's where name becomes important.
+
+name="employeeName"
+          ↓
+      FIELD NAME
+
+User enters
+   Rahul
+     ↓
+FIELD VALUE
+
+Together:
+
+employeeName = Rahul
+
+Another input:
+
+<input
+  type="email"
+  name="email"
+>
+
+User enters:
+
+rahul@gmail.com
+
+Now:
+
+employeeName = Rahul
+
+email = rahul@gmail.com
+
+Think of name as the key/field name used during native form submission.
+
+8. Connect It With JSON
+
+This is only to help you understand the concept.
+
+Form fields:
+
+employeeName = Rahul
+email        = rahul@gmail.com
+
+A similar data structure represented as JSON could look like:
+
+{
+  "employeeName": "Rahul",
+  "email": "rahul@gmail.com"
+}
+
+So conceptually:
+
+name attribute
+     ↓
+FIELD / KEY
+
+
+entered value
+     ↓
+VALUE
+
+But remember: a normal HTML form does not automatically send JSON.
+
+We'll deal with JSON/API submission later when React handles the form.
+
+9. <fieldset>
+
+Suppose our registration form becomes bigger:
+
+REGISTRATION
+
+Personal Information
+---------------------
+Name
+Email
+Phone
+
+
+Account Information
+--------------------
+Username
+Password
+
+There are clearly two groups of related information.
+
+HTML provides:
+
+<fieldset>
+
+</fieldset>
+
+Its job is to:
+
+Group related form controls.
+
+Example:
+
+<fieldset>
+
+  <label>Name</label>
+  <input type="text">
+
+  <label>Email</label>
+  <input type="email">
+
+</fieldset>
+
+Think:
+
+FIELDSET
+│
+├── Name
+├── Email
+└── Phone
+10. <legend>
+
+Now we have a group.
+
+But what is that group called?
+
+Use:
+
+<legend>
+  Personal Information
+</legend>
+
+Complete:
+
+<fieldset>
+
+  <legend>
+    Personal Information
+  </legend>
+
+  <label>Name</label>
+  <input type="text">
+
+  <label>Email</label>
+  <input type="email">
+
+</fieldset>
+
+Think:
+
+┌── Personal Information ──────────┐
+│                                  │
+│ Name     [_______________]       │
+│                                  │
+│ Email    [_______________]       │
+│                                  │
+└──────────────────────────────────┘
+
+So:
+
+fieldset
+   ↓
+GROUP
+
+
+legend
+   ↓
+NAME/CAPTION OF GROUP
+11. Put Everything Together
+
+Now look at this:
+
+<form
+  action="/api/employees"
+  method="post"
+>
+
+  <fieldset>
+
+    <legend>
+      Employee Information
+    </legend>
+
+    <label for="employeeName">
+      Employee Name
+    </label>
+
+    <input
+      id="employeeName"
+      type="text"
+      name="employeeName"
+    >
+
+    <br><br>
+
+    <label for="employeeEmail">
+      Email
+    </label>
+
+    <input
+      id="employeeEmail"
+      type="email"
+      name="email"
+    >
+
+    <br><br>
+
+    <button type="submit">
+      Create Employee
+    </button>
+
+  </fieldset>
+
+</form>
+
+Don't memorize it.
+
+Read it:
+
+FORM
+│
+├── action="/api/employees"
+│      ↓
+│    WHERE?
+│
+├── method="post"
+│      ↓
+│     HOW?
+│
+└── FIELDSET
+       ↓
+   Related controls
+       │
+       ├── LEGEND
+       │     ↓
+       │   Group name
+       │
+       ├── Employee Name
+       │
+       ├── Email
+       │
+       └── Submit
+12. Form Submission Flow ⭐
+
+This is the main thing I want you to understand from this topic:
+
+USER
+ │
+ ▼
+Fills Employee Form
+
+Name  = Rahul
+Email = rahul@gmail.com
+ │
+ ▼
+Clicks Create Employee
+ │
+ ▼
+<form>
+ │
+ ├── action
+ │      ↓
+ │   WHERE?
+ │
+ └── method
+        ↓
+      HOW?
+ │
+ ▼
+HTTP REQUEST
+ │
+ ▼
+BACKEND
+
+Later with React:
+
+FORM
+ ↓
+React onSubmit
+ ↓
+TypeScript / JavaScript
+ ↓
+API request
+ ↓
+Express
+ ↓
+MongoDB
+
+That second flow will become extremely important later.
+
+🛠 Our Practical
+
+Inside your existing:
+
+html-practice/
+└── semantic.html
+
+add this inside <main>:
+
+<section>
+
+  <h2>Create Employee</h2>
+
+  <form
+    action="/api/employees"
+    method="post"
+  >
+
+    <fieldset>
+
+      <legend>
+        Employee Information
+      </legend>
+
+      <label for="employeeName">
+        Employee Name
+      </label>
+
+      <input
+        id="employeeName"
+        type="text"
+        name="employeeName"
+      >
+
+      <br><br>
+
+      <label for="employeeEmail">
+        Email
+      </label>
+
+      <input
+        id="employeeEmail"
+        type="email"
+        name="email"
+      >
+
+      <br><br>
+
+      <button type="submit">
+        Create Employee
+      </button>
+
+    </fieldset>
+
+  </form>
+
+</section>
+
+Open it in your browser and enter any employee name and email.
+
+Don't worry about making the POST actually work yet. This exercise is about understanding the HTML form.
+
+Before we mark Forms complete, you should be able to answer these seven things:
+<form>      → What is it?
+
+action      → WHERE?
+
+method      → HOW?
+
+GET         → When/why?
+
+POST        → When/why?
+
+fieldset    → What does it group?
+
+legend      → What does it describe?
+
+
+
+
+Topic 3 — HTML
+Labels & Inputs 🔄 CURRENT
+
+Forms = ✅ COMPLETE.
+
+Now we learn the actual controls users interact with.
+
+├── Semantic HTML                    ✅
+├── Text & Content                   ✅
+├── Links                            ✅
+├── Images                           ✅
+├── Forms                            ✅
+│
+├── Labels & Inputs                  🔄 CURRENT
+│   ├── label
+│   ├── for / id
+│   ├── name / value
+│   ├── placeholder
+│   ├── text
+│   ├── email
+│   ├── password
+│   ├── number
+│   ├── tel
+│   ├── date
+│   ├── checkbox
+│   ├── radio
+│   ├── file
+│   ├── textarea
+│   ├── select / option
+│   └── disabled / readonly
+│
+├── Buttons                          ⏳
+├── Native HTML Validation           ⏳
+├── Tables                           ⏳
+├── Accessibility Basics            ⏳
+├── ARIA Basics                      ⏳
+└── SEO / Meta Basics               ⏳
+1. What is <input>?
+
+An <input> is a control where the user can enter or choose data.
+
+For example:
+
+<input type="text">
+
+Browser:
+
+Employee Name
+
+[________________________]
+
+Different type values create different kinds of controls:
+
+type="text"       → normal text
+type="email"      → email
+type="password"   → password
+type="number"     → number
+type="tel"        → phone number
+type="date"       → date
+type="checkbox"   → checkbox
+type="radio"      → radio button
+type="file"       → file picker
+
+Think:
+
+<input>
+   │
+   └── type
+        ↓
+   What kind of input?
+2. <label> ⭐
+
+Suppose we have:
+
+<label>Employee Name</label>
+
+<input type="text">
+
+The label tells the user what information the input expects.
+
+Employee Name       ← LABEL
+
+[_______________]   ← INPUT
+
+Another:
+
+<label>Email Address</label>
+
+<input type="email">
+
+So:
+
+LABEL
+  ↓
+What should I enter?
+
+
+INPUT
+  ↓
+Where do I enter it?
+
+But there is a better way to connect them.
+
+3. for and id ⭐ VERY IMPORTANT
+
+Look carefully:
+
+<label for="employeeName">
+  Employee Name
+</label>
+
+<input
+  id="employeeName"
+  type="text"
+>
+
+Notice:
+
+for="employeeName"
+
+          ↕ MATCH
+
+id="employeeName"
+
+The label's for identifies the input with that id.
+
+Think:
+
+LABEL
+for="employeeName"
+       │
+       │ connects to
+       ▼
+INPUT
+id="employeeName"
+Why does this matter?
+
+Click the words:
+
+Employee Name
+
+The browser should focus the associated input.
+
+That's useful for both usability and accessibility.
+
+Rule
+<label for="email">
+
+<input id="email">
+
+The values should match.
+
+4. id vs name ⭐
+
+This is something beginners often confuse.
+
+Look:
+
+<input
+  id="employeeName"
+  name="employeeName"
+  type="text"
+>
+
+They happen to have the same value here, but they have different jobs.
+
+id
+
+Identifies an element in the HTML document.
+
+Here it also connects the input with:
+
+<label for="employeeName">
+
+So:
+
+id
+↓
+IDENTIFIES THE ELEMENT
+name
+
+Identifies the field when its value participates in form submission.
+
+name
+↓
+FORM FIELD NAME / KEY
+
+Example:
+
+<input
+  id="employeeName"
+  name="name"
+  type="text"
+>
+
+These don't have to match.
+
+The label connects using:
+
+for="employeeName"
+        ↓
+id="employeeName"
+
+The submitted field is:
+
+name="name"
+     ↓
+name = Rahul
+Easy memory
+for ↔ id
+      ↓
+Label connection
+
+
+name ↔ entered value
+       ↓
+Form data
+
+This distinction is very important.
+
+5. value
+
+Suppose:
+
+<input
+  type="text"
+  name="employeeName"
+  value="Rahul"
+>
+
+When the page loads, the input already contains:
+
+[ Rahul ]
+
+value represents the input's current/default value in this HTML example.
+
+Conceptually:
+
+name="employeeName"
+        ↓
+       KEY
+
+value="Rahul"
+        ↓
+      VALUE
+
+So:
+
+employeeName = Rahul
+6. placeholder
+
+Now compare:
+
+<input
+  type="text"
+  placeholder="Enter employee name"
+>
+
+Browser:
+
+[ Enter employee name        ]
+
+The placeholder is a hint inside the input.
+
+Once the user starts typing:
+
+[ Rahul                      ]
+
+the placeholder disappears.
+
+value vs placeholder
+value="Rahul"
+
+[ Rahul                 ]
+
+→ actual input value
+
+
+placeholder="Enter your name"
+
+[ Enter your name       ]
+
+→ temporary hint
+
+And importantly:
+
+A placeholder should not replace a proper <label>.
+
+Good:
+
+<label for="name">
+  Employee Name
+</label>
+
+<input
+  id="name"
+  name="name"
+  type="text"
+  placeholder="Enter employee name"
+>
+7. type="text"
+
+The most basic input:
+
+<input type="text">
+
+Use it for ordinary single-line text.
+
+Examples:
+
+Name
+City
+Department
+Job title
+Username
+
+Employee example:
+
+<label for="employeeName">
+  Employee Name
+</label>
+
+<input
+  id="employeeName"
+  name="employeeName"
+  type="text"
+  placeholder="Enter employee name"
+>
+8. type="email"
+
+For email:
+
+<input type="email">
+
+Example:
+
+<label for="email">
+  Email
+</label>
+
+<input
+  id="email"
+  name="email"
+  type="email"
+  placeholder="name@example.com"
+>
+
+Why not simply use text?
+
+Because email communicates that this field expects an email address and enables browser behaviors such as built-in email-format validation.
+
+We'll study validation properly later.
+
+9. type="password"
+<input type="password">
+
+Browser:
+
+Password
+
+[ ••••••••••• ]
+
+The characters are visually obscured.
+
+Example:
+
+<label for="password">
+  Password
+</label>
+
+<input
+  id="password"
+  name="password"
+  type="password"
+>
+
+Important:
+
+password input
+      ≠
+password encryption
+
+It mainly masks the characters visually. Security still requires things such as HTTPS and proper backend password handling.
+
+10. type="number"
+
+For numeric input:
+
+<input type="number">
+
+Example:
+
+<label for="experience">
+  Years of Experience
+</label>
+
+<input
+  id="experience"
+  name="experience"
+  type="number"
+>
+
+Good for quantities/numeric values such as:
+
+Experience → 8
+Quantity   → 5
+Age        → 33
+
+But don't use number simply because something contains digits.
+
+For example, a phone number isn't something you mathematically calculate.
+
+That's why we have tel.
+
+11. type="tel"
+<input type="tel">
+
+Example:
+
+<label for="phone">
+  Phone Number
+</label>
+
+<input
+  id="phone"
+  name="phone"
+  type="tel"
+  placeholder="+91 98765 43210"
+>
+
+Useful for telephone numbers.
+
+On mobile devices, browsers may provide a more suitable keyboard.
+
+12. type="date"
+<input type="date">
+
+Example:
+
+<label for="joiningDate">
+  Joining Date
+</label>
+
+<input
+  id="joiningDate"
+  name="joiningDate"
+  type="date"
+>
+
+The browser usually provides a date-selection interface.
+
+Conceptually:
+
+Joining Date
+
+[ 13/08/2026 📅 ]
+
+The exact appearance depends on the browser/device.
+
+13. Checkbox
+
+A checkbox represents an independent yes/no or multiple-selection choice.
+
+<input
+  type="checkbox"
+  id="remote"
+  name="remote"
+>
+
+<label for="remote">
+  Remote Employee
+</label>
+
+Browser:
+
+☐ Remote Employee
+
+Click:
+
+☑ Remote Employee
+
+Another example:
+
+Skills
+
+☑ React
+☑ TypeScript
+☐ Angular
+
+Multiple checkboxes can be selected.
+
+Think:
+
+CHECKBOX
+   ↓
+Zero, one, or multiple choices
+depending on the form
+14. Radio Buttons ⭐
+
+Radio buttons are useful when the user should choose one option from a group.
+
+Example:
+
+<input
+  type="radio"
+  id="fullTime"
+  name="employmentType"
+  value="full-time"
+>
+
+<label for="fullTime">
+  Full Time
+</label>
+
+
+<input
+  type="radio"
+  id="contract"
+  name="employmentType"
+  value="contract"
+>
+
+<label for="contract">
+  Contract
+</label>
+
+Notice something very important:
+
+name="employmentType"
+
+name="employmentType"
+
+Both have the same name.
+
+That groups them.
+
+Browser:
+
+Employment Type
+
+○ Full Time
+○ Contract
+
+Choose one:
+
+● Full Time
+○ Contract
+
+Choose Contract:
+
+○ Full Time
+● Contract
+Checkbox vs Radio
+CHECKBOX
+
+☑ React
+☑ Node
+☑ MongoDB
+
+Multiple selections possible
+
+
+RADIO
+
+○ Full Time
+● Contract
+
+One selection from the group
+15. value becomes especially clear with radio
+
+Look:
+
+<input
+  type="radio"
+  name="employmentType"
+  value="full-time"
+>
+
+If selected, conceptually:
+
+employmentType = full-time
+
+Other radio:
+
+<input
+  type="radio"
+  name="employmentType"
+  value="contract"
+>
+
+If selected:
+
+employmentType = contract
+
+Now name and value should make much more sense:
+
+name
+ ↓
+employmentType
+
+
+value
+ ↓
+full-time
+
+Together:
+
+employmentType = full-time
+16. File Input
+
+For choosing a file:
+
+<input type="file">
+
+Example:
+
+<label for="resume">
+  Upload Resume
+</label>
+
+<input
+  id="resume"
+  name="resume"
+  type="file"
+>
+
+Browser generally displays something like:
+
+Upload Resume
+
+[ Choose File ] No file chosen
+
+Later, file uploading involves additional frontend/backend handling.
+
+For HTML right now, just understand the control.
+
+17. <textarea>
+
+Suppose we need:
+
+Employee Description
+
+[                              ]
+[                              ]
+[                              ]
+[                              ]
+
+A normal text input is single-line.
+
+For larger multi-line text, use:
+
+<textarea></textarea>
+
+Example:
+
+<label for="bio">
+  Employee Bio
+</label>
+
+<textarea
+  id="bio"
+  name="bio"
+></textarea>
+
+Useful for:
+
+Comments
+Messages
+Descriptions
+Feedback
+Bio
+Address
+Input vs textarea
+<input type="text">
+       ↓
+Single-line text
+
+
+<textarea>
+       ↓
+Multi-line text
+18. <select> and <option>
+
+Suppose an employee needs a department:
+
+Department
+
+[ Engineering ▼ ]
+
+Use:
+
+<select>
+
+with:
+
+<option>
+
+Example:
+
+<label for="department">
+  Department
+</label>
+
+<select
+  id="department"
+  name="department"
+>
+
+  <option value="engineering">
+    Engineering
+  </option>
+
+  <option value="finance">
+    Finance
+  </option>
+
+  <option value="hr">
+    Human Resources
+  </option>
+
+</select>
+
+Think:
+
+SELECT
+  │
+  ├── OPTION → Engineering
+  ├── OPTION → Finance
+  └── OPTION → Human Resources
+
+If Engineering is selected:
+
+department = engineering
+
+because:
+
+name="department"
+
+and:
+
+value="engineering"
+19. disabled
+
+Example:
+
+<input
+  type="text"
+  value="Employee ID 101"
+  disabled
+>
+
+A disabled control generally:
+
+cannot be edited,
+cannot be focused normally,
+and is not included in native form submission.
+
+Think:
+
+disabled
+   ↓
+Control unavailable
+20. readonly
+
+Example:
+
+<input
+  type="text"
+  name="employeeCode"
+  value="EMP101"
+  readonly
+>
+
+The user can see the value but cannot edit it.
+
+Unlike a disabled input, a readonly input can still participate in native form submission.
+
+disabled vs readonly
+DISABLED
+
+Cannot edit
+Usually cannot focus
+NOT submitted
+
+
+READONLY
+
+Cannot edit
+Can generally focus/select
+IS submitted
+
+This distinction is worth remembering.
+
+🛠 Practical — Build Our Employee Form
+
+Now upgrade the employee form you've already created.
+
+<section>
+
+  <h2>Create Employee</h2>
+
+  <form action="/api/employees" method="post">
+
+    <fieldset>
+
+      <legend>Employee Information</legend>
+
+      <label for="employeeName">
+        Employee Name
+      </label>
+
+      <input
+        id="employeeName"
+        name="employeeName"
+        type="text"
+        placeholder="Enter employee name"
+      >
+
+      <br><br>
+
+
+      <label for="employeeEmail">
+        Email
+      </label>
+
+      <input
+        id="employeeEmail"
+        name="email"
+        type="email"
+        placeholder="Enter email address"
+      >
+
+      <br><br>
+
+
+      <label for="password">
+        Password
+      </label>
+
+      <input
+        id="password"
+        name="password"
+        type="password"
+      >
+
+      <br><br>
+
+
+      <label for="experience">
+        Experience
+      </label>
+
+      <input
+        id="experience"
+        name="experience"
+        type="number"
+      >
+
+      <br><br>
+
+
+      <label for="phone">
+        Phone
+      </label>
+
+      <input
+        id="phone"
+        name="phone"
+        type="tel"
+      >
+
+      <br><br>
+
+
+      <label for="joiningDate">
+        Joining Date
+      </label>
+
+      <input
+        id="joiningDate"
+        name="joiningDate"
+        type="date"
+      >
+
+      <br><br>
+
+
+      <label for="department">
+        Department
+      </label>
+
+      <select
+        id="department"
+        name="department"
+      >
+        <option value="engineering">
+          Engineering
+        </option>
+
+        <option value="finance">
+          Finance
+        </option>
+
+        <option value="hr">
+          Human Resources
+        </option>
+      </select>
+
+      <br><br>
+
+
+      <p>Employment Type</p>
+
+      <input
+        id="fullTime"
+        name="employmentType"
+        type="radio"
+        value="full-time"
+      >
+
+      <label for="fullTime">
+        Full Time
+      </label>
+
+
+      <input
+        id="contract"
+        name="employmentType"
+        type="radio"
+        value="contract"
+      >
+
+      <label for="contract">
+        Contract
+      </label>
+
+      <br><br>
+
+
+      <input
+        id="remote"
+        name="remote"
+        type="checkbox"
+      >
+
+      <label for="remote">
+        Remote Employee
+      </label>
+
+      <br><br>
+
+
+      <label for="resume">
+        Resume
+      </label>
+
+      <input
+        id="resume"
+        name="resume"
+        type="file"
+      >
+
+      <br><br>
+
+
+      <label for="bio">
+        Employee Bio
+      </label>
+
+      <br>
+
+      <textarea
+        id="bio"
+        name="bio"
+      ></textarea>
+
+      <br><br>
+
+
+      <button type="submit">
+        Create Employee
+      </button>
+
+    </fieldset>
+
+  </form>
+
+</section>
+
+Don't worry about how ugly this looks. CSS comes later. Right now we're building the correct HTML.
+
+⭐ The 4 Attributes You Must Not Confuse
+
+This is the key takeaway from this section:
+
+<label for="employeeName">
+                    │
+                    │ connects to
+                    ▼
+<input id="employeeName"
+       name="name"
+       value="Rahul">
+
+Read it as:
+
+for
+ ↓
+Which input does this label belong to?
+
+
+id
+ ↓
+Identity of that HTML element
+
+
+name
+ ↓
+Field/key used for form submission
+
+
+value
+ ↓
+Value associated with that field
+
+Or even shorter:
+
+for ↔ id
+Label connection
+
+name ↔ value
+Form data
+
+That's the part I want you to understand particularly well before we move forward.
+
+
 
 
 
