@@ -97,22 +97,22 @@ DO IT WITHOUT HELP
 
 2. Development Setup
 
-├── Node + npm                         ✅
-├── React + TypeScript + Vite          ✅
-├── Express + TypeScript               ✅
-├── Git + GitHub                       ✅
-├── React → Express                    ✅
-├── CORS                               ✅
-├── Environment variables              ✅
-├── MongoDB Atlas + Mongoose           ✅
-├── Database connection                ✅
-├── Employee model                     ✅
-├── POST /api/employees                ✅
-├── Save employee to MongoDB           ✅
-├── GET employees from MongoDB         ✅
-├── Show employees in React            ✅
-├── Full React → API → MongoDB flow    ✅
-└── Topic 2 quick revision             ✅
+├── Node + npm                                 ✅
+├── React + TypeScript + Vite                  ✅
+├── Express + TypeScript                       ✅
+├── Git + GitHub                               ✅
+├── React → Express                            ✅
+├── CORS                                       ✅
+├── Environment variables                      ✅
+├── MongoDB Atlas + Mongoose                   ✅
+├── Database connection                        ✅
+├── Employee model                             ✅
+├── POST /api/employees                        ✅
+├── Save employee to MongoDB                   ✅
+├── GET employees from MongoDB                 ✅
+├── Show employees in React                    ✅
+├── Full React → API → MongoDB flow            ✅
+└── Topic 2 quick revision                     ✅
 
 #### PHASE 2 — FRONTEND FOUNDATION
 
@@ -120,140 +120,72 @@ PHASE 2 — FRONTEND FOUNDATION
 
 3. HTML — Practical Foundation
 
-├── Semantic HTML                         ✅ COMPLETE
-│   ├── Basic document structure          ✅
-│   │   ├── <!DOCTYPE html>               ✅
-│   │   ├── html                          ✅
-│   │   ├── head                          ✅
-│   │   └── body                          ✅
-│   ├── header                            ✅
-│   ├── nav                               ✅
-│   ├── main                              ✅
-│   ├── section                           ✅
-│   ├── article                           ✅
-│   ├── aside                             ✅
-│   ├── footer                            ✅
-│   ├── div                               ✅
-│   ├── span                              ✅
-│   ├── section vs article                ✅
-│   ├── Complete page skeleton            ✅
-│   ├── Guided practical                  ✅
-│   ├── DOM inspection                    ✅
-│   └── Independent challenge             ✅
+├── Semantic HTML                           ✅ 
+│   ├── Basic document structure            ✅
+│   ├── header / nav / main                 ✅
+│   ├── section / article / aside           ✅
+│   ├── footer                              ✅
+│   ├── div / span                          ✅
+│   └── Semantic practical                  ✅
 │
-├── Text & Content                        ✅ COMPLETE
-│   ├── h1–h6                             ✅
-│   ├── p                                 ✅
-│   ├── strong                            ✅
-│   ├── em                                ✅
-│   ├── br / hr                           ✅
-│   └── ul / ol / li                      ✅
+├── Text & Content                          ✅ 
+│   ├── h1–h6                               ✅
+│   ├── p                                   ✅
+│   ├── strong / em                         ✅
+│   ├── br / hr                             ✅
+│   └── ul / ol / li                        ✅
 │
-├── Links                                 ✅ COMPLETE
-│   ├── a / href                          ✅
-│   ├── Internal / external links         ✅
-│   ├── Relative / absolute paths         ✅
-│   ├── target                            ✅
-│   ├── rel basics                        ✅
-│   ├── Same-page links                   ✅
-│   ├── mailto / tel                      ✅
-│   └── Accessible link text              ✅
+├── Links                                   ✅ 
+├── Images                                  ✅ 
+├── Forms                                   ✅ 
+├── Labels & Inputs                         ✅ 
+├── Buttons                                 ✅ 
 │
-├── Images                                ✅ COMPLETE
-│   ├── img / src                         ✅
-│   ├── alt                               ✅
-│   ├── Relative paths                    ✅
-│   ├── width / height                    ✅
-│   ├── Informative vs decorative         ✅
-│   ├── figure                            ✅
-│   ├── figcaption                        ✅
-│   └── alt vs figcaption                 ✅
+├── Native HTML Validation                  ✅ 
+│   ├── required                            ✅
+│   ├── minlength / maxlength               ✅
+│   ├── min / max                           ✅
+│   ├── step                                ✅
+│   ├── pattern basics                      ✅
+│   └── Input type validation               ✅
 │
-├── Forms                                 ✅ COMPLETE
-│   ├── form                              ✅
-│   ├── action                            ✅
-│   ├── method                            ✅
-│   ├── GET vs POST                       ✅
-│   ├── name                              ✅
-│   ├── fieldset                          ✅
-│   ├── legend                            ✅
-│   └── Form submission basics            ✅
+├── Tables                                  ✅ 
+│   ├── table                               ✅
+│   ├── caption                             ✅
+│   ├── thead / tbody / tfoot               ✅
+│   ├── tr / th / td                        ✅
+│   ├── scope basics                        ✅
+│   ├── colspan                             ✅
+│   └── rowspan                             ✅
 │
-├── Labels & Inputs                       ✅
-│   ├── label                             ✅
-│   ├── for / id                          ✅
-│   ├── name / value                      ✅
-│   ├── placeholder                       ✅
-│   ├── text                              ✅
-│   ├── email                             ✅
-│   ├── password                          ✅
-│   ├── number                            ✅
-│   ├── tel                               ✅
-│   ├── date                              ✅
-│   ├── checkbox                          ✅
-│   ├── radio                             ✅
-│   ├── file                              ✅
-│   ├── textarea                          ✅
-│   ├── select / option                   ✅
-│   ├── disabled / readonly               ✅
-│   └── Employee Form practical           ✅
+├── Accessibility Basics                    ✅ 
+│   ├── Semantic HTML for accessibility     ✅
+│   ├── Image alt text                      ✅
+│   ├── Accessible form labels              ✅
+│   ├── Keyboard accessibility              ✅
+│   ├── Heading hierarchy                   ✅
+│   ├── Descriptive links                   ✅
+│   ├── Don't rely only on color            ✅
+│   ├── Focus basics                        ✅
+│   └── Native HTML first principle         ✅
 │
-├── Buttons                               ⏳ NEXT
-│   ├── button
-│   ├── type="button"
-│   ├── type="submit"
-│   ├── type="reset"
-│   └── Button vs link
+├── ARIA Basics                             ✅
 │
-├── Native HTML Validation                ⏳
-│   ├── required
-│   ├── minlength / maxlength
-│   ├── min / max
-│   ├── step
-│   ├── pattern basics
-│   └── Input type validation
-│
-├── Tables                                ⏳
-│   ├── table
-│   ├── caption
-│   ├── thead / tbody / tfoot
-│   ├── tr / th / td
-│   ├── scope basics
-│   ├── colspan
-│   └── rowspan
-│
-├── Accessibility Basics                  ⏳
-│
-├── ARIA Basics                           ⏳
-│
-└── SEO / Meta Basics                     ⏳
-
+└── SEO / Meta Basics                       ✅
 
 🛠 FINAL HTML BUILDS
 
-├── Semantic dashboard skeleton           ✅
-├── Login form                            ⏳
-├── Registration form                     ⏳
-├── Contact form                          ⏳
-├── Profile page                          ⏳
-├── Employee form                         🔄 CURRENT
-├── Employee data table                   ⏳
-├── Complete dashboard structure          ⏳
-└── Final HTML challenge                  ⏳
+├── Semantic dashboard skeleton             ✅
+├── Login form                              ✅
+├── Registration form                       ✅
+├── Contact form                            ✅
+├── Profile page                            ✅
+├── Employee form                           ✅
+├── Employee data table                     ✅
+├── Complete dashboard structure            ✅
+└── Final HTML challenge                    ✅
 
 
-🎯 INTERVIEW + INDEPENDENCE
-
-├── Semantic HTML questions               ✅
-├── section vs article                    ✅
-├── div vs semantic elements              ✅
-├── Form / input questions                ⏳
-├── Button vs link                        ⏳
-├── Validation questions                  ⏳
-├── Accessibility / ARIA questions        ⏳
-├── Debug incorrect HTML                  ⏳
-├── Build from requirement without help   ⏳
-└── Topic 3 quick revision + images       ⏳
 
 4. CSS
 
