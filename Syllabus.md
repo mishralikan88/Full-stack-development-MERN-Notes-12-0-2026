@@ -258,54 +258,62 @@ UI
 
 This is one of the most important phases for interviews + development.
 
-6. JavaScript Core
-Variables
-Data types
-Type conversion/coercion
-Operators
-Conditions
-Loops
-Functions
-Arrays
-Objects
-Strings
-Dates
-Sets
-Maps
-Functions
-Declaration
-Expression
-Arrow
-Callback
-Higher-order function
-Pure function
-Recursion
-Arrays
 
-Master:
+6. JAVASCRIPT CORE
 
-map
-filter
-reduce
-find
-findIndex
-some
-every
-sort
-flat
-flatMap
-Objects
-references
-shallow/deep copying
-destructuring
-spread
-rest
-Object.keys
-Object.values
-Object.entries
-🛠 Practical
+FOUNDATION
+├── Variables                         ✅ DONE
+├── Data types                        ✅ DONE
+├── Type conversion/coercion          ✅ DONE
+├── Operators                         🔄 NEXT
+├── Conditions                        ⏳
+├── Loops                             ⏳
+├── Functions                         ⏳
+├── Arrays                            ⏳
+├── Objects                           ⏳
+├── Strings                           ⏳
+├── Dates                             ⏳
+├── Sets                              ⏳
+└── Maps                              ⏳
 
-50 JS coding problems.
+
+FUNCTIONS — DEEP PRACTICE
+├── Declaration                       ⏳
+├── Expression                        ⏳
+├── Arrow                             ⏳
+├── Callback                          ⏳
+├── Higher-order function             ⏳
+├── Pure function                     ⏳
+└── Recursion                         ⏳
+
+
+ARRAYS — MASTER
+├── map()                             ⏳
+├── filter()                          ⏳
+├── reduce()                          ⏳
+├── find()                            ⏳
+├── findIndex()                       ⏳
+├── some()                            ⏳
+├── every()                           ⏳
+├── sort()                            ⏳
+├── flat()                            ⏳
+└── flatMap()                         ⏳
+
+
+OBJECTS — MASTER
+├── References                        ⏳
+├── Shallow copying                   ⏳
+├── Deep copying                      ⏳
+├── Destructuring                     ⏳
+├── Spread                            ⏳
+├── Rest                              ⏳
+├── Object.keys()                     ⏳
+├── Object.values()                   ⏳
+└── Object.entries()                  ⏳
+
+
+🛠 PRACTICAL
+└── 50 JavaScript coding problems     ⏳
 
 7. JavaScript Internals
 
@@ -324,6 +332,7 @@ call/apply/bind
 Prototype
 Prototype chain
 Classes
+
 🛠 Practical
 
 Output-prediction + debugging questions.
@@ -370,6 +379,7 @@ Recursion
 Composition
 Retry
 Event emitter
+
 🛠 Implement
 myMap
 myFilter
