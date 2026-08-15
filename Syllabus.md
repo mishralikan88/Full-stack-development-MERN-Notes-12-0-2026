@@ -265,106 +265,101 @@ FOUNDATION
 ├── Variables                         ✅ DONE
 ├── Data types                        ✅ DONE
 ├── Type conversion/coercion          ✅ DONE
-├── Operators                         🔄 NEXT
-├── Conditions                        ⏳
-├── Loops                             ⏳
-├── Functions                         ⏳
-├── Arrays                            ⏳
-├── Objects                           ⏳
-├── Strings                           ⏳
-├── Dates                             ⏳
-├── Sets                              ⏳
-└── Maps                              ⏳
+├── Operators                         ✅ DONE
+├── Conditions                        ✅ DONE
+├── Loops                             ✅ DONE
+├── Functions                         ✅ DONE
+├── Arrays                            ✅ DONE
+├── Objects                           ✅ DONE
+├── Strings                           ✅ DONE
+├── Dates                             ✅ DONE
+├── Sets                              ✅ DONE
+└── Maps                              ✅ DONE
 
 
 FUNCTIONS — DEEP PRACTICE
-├── Declaration                       ⏳
-├── Expression                        ⏳
-├── Arrow                             ⏳
-├── Callback                          ⏳
-├── Higher-order function             ⏳
-├── Pure function                     ⏳
-└── Recursion                         ⏳
+├── Declaration                       ✅ DONE
+├── Expression                        ✅ DONE
+├── Arrow                             ✅ DONE
+├── Callback                          ✅ DONE
+├── Higher-order function             ✅ DONE
+├── Pure function                     ✅ DONE
+└── Recursion                         ✅ DONE
 
 
 ARRAYS — MASTER
-├── map()                             ⏳
-├── filter()                          ⏳
-├── reduce()                          ⏳
-├── find()                            ⏳
-├── findIndex()                       ⏳
-├── some()                            ⏳
-├── every()                           ⏳
-├── sort()                            ⏳
-├── flat()                            ⏳
-└── flatMap()                         ⏳
+├── map()                             ✅ DONE
+├── filter()                          ✅ DONE
+├── reduce()                          ✅ DONE
+├── find()                            ✅ DONE
+├── findIndex()                       ✅ DONE
+├── some()                            ✅ DONE
+├── every()                           ✅ DONE
+├── sort()                            ✅ DONE
+├── flat()                            ✅ DONE
+└── flatMap()                         ✅ DONE
 
 
 OBJECTS — MASTER
-├── References                        ⏳
-├── Shallow copying                   ⏳
-├── Deep copying                      ⏳
-├── Destructuring                     ⏳
-├── Spread                            ⏳
-├── Rest                              ⏳
-├── Object.keys()                     ⏳
-├── Object.values()                   ⏳
-└── Object.entries()                  ⏳
+├── References                        ✅ DONE
+├── Shallow copying                   ✅ DONE
+├── Deep copying                      ✅ DONE
+├── Destructuring                     ✅ DONE
+├── Spread                            ✅ DONE
+├── Rest                              ✅ DONE
+├── Object.keys()                     ✅ DONE
+├── Object.values()                   ✅ DONE
+└── Object.entries()                  ✅ DONE
 
 
 🛠 PRACTICAL
-└── 50 JavaScript coding problems     ⏳
+└── 50 or more JavaScript coding problems selective     ⏳
 
-7. JavaScript Internals
+7. JAVASCRIPT INTERNALS
 
-Short theory + lots of experiments.
-
-Execution context
-Call stack
-Scope
-Lexical scope
-Scope chain
-Hoisting
-TDZ
-Closures
-this
-call/apply/bind
-Prototype
-Prototype chain
-Classes
+├── Execution Context                 ✅ DONE
+├── Call Stack                        ✅ DONE
+├── Scope                             ✅ DONE
+├── Lexical Scope                     ✅ DONE
+├── Scope Chain                       ✅ DONE
+├── Hoisting                          ✅ DONE
+├── TDZ                               ✅ DONE
+├── Closures                          ✅ DONE
+├── var/let loop question             ✅ DONE
+├── this                              ✅ DONE
+├── call/apply/bind                   ✅ DONE
+├── Prototype                         ✅ DONE
+├── Prototype Chain                   ✅ DONE
+└── Classes                           ✅ DONE
 
 🛠 Practical
 
-Output-prediction + debugging questions.
+Output-prediction including event loop output questions + debugging questions.   ⏳
 
 8. Async JavaScript
 
 Extremely important.
 
 Sync vs async
+Event Loop
+Callstack
+Web APIs
+Microtask Queue
+Task Queue
 Callback
+Callback hell
 Promise
 Promise chaining
+promise hell
 async/await
 try/catch
 Fetch
 AbortController
-
-Master:
-
 Promise.all
 Promise.allSettled
 Promise.race
 Promise.any
-Event Loop
-Call Stack
-Web APIs
-Microtask Queue
-Task Queue
-Event Loop
-🛠 Practical
 
-Build an API-driven Vanilla JS application.
 
 9. Advanced Practical JavaScript
 
@@ -380,7 +375,8 @@ Composition
 Retry
 Event emitter
 
-🛠 Implement
+🛠 Implement -
+
 myMap
 myFilter
 myReduce
@@ -393,7 +389,7 @@ memoize
 once
 retry
 groupBy
-Promise.all
+Promise.all and other promise APIS
 EventEmitter
 
 
@@ -401,6 +397,7 @@ EventEmitter
 
 
 10. TypeScript for Full-Stack Development
+
 Core
 Types
 Type inference
@@ -791,6 +788,8 @@ Authentication
 Authorization
 RBAC
 Refresh rotation
+
+
 23. Common Freelance Features
 
 You must implement each at least once:
@@ -811,6 +810,8 @@ Soft delete
 Scheduled tasks
 Background jobs
 Third-party APIs
+
+
 24. Realtime + Advanced Backend
 WebSockets
 Socket.IO
