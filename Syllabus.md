@@ -336,61 +336,128 @@ OBJECTS — MASTER
 
 Output-prediction including event loop output questions + debugging questions.   ⏳
 
-8. Async JavaScript
+8. ASYNC JAVASCRIPT
 
-Extremely important.
-
-Sync vs async
-Event Loop
-Callstack
-Web APIs
-Microtask Queue
-Task Queue
-Callback
-Callback hell
-Promise
-Promise chaining
-promise hell
-async/await
-try/catch
-Fetch
-AbortController
-Promise.all
-Promise.allSettled
-Promise.race
-Promise.any
+FOUNDATION
+├── Sync vs Async                         ✅ DONE
+├── How JavaScript handles async work     ✅ DONE
+├── Event Loop                            ✅ DONE
+├── Call Stack                            ✅ DONE
+├── Web APIs                              ✅ DONE
+├── Microtask Queue                       ✅ DONE
+└── Task Queue                            ✅ DONE
 
 
-9. Advanced Practical JavaScript
+CALLBACKS
+├── Callback                              ⏳
+└── Callback Hell                         ⏳ 🔥
 
-Learn + implement yourself:
 
-Debounce
-Throttle
-Currying
-Memoization
-Closures
-Recursion
-Composition
-Retry
-Event emitter
+PROMISES
+├── Promise                               ⏳ 🔥🔥🔥
+├── Creating a Promise                    ⏳
+├── Promise states                        ⏳
+│   ├── Pending
+│   ├── Fulfilled
+│   └── Rejected
+├── then()                                ⏳
+├── catch()                               ⏳
+├── finally()                             ⏳
+├── Promise Chaining                      ⏳ 🔥🔥🔥
+└── Promise Hell                          ⏳
 
-🛠 Implement -
 
-myMap
-myFilter
-myReduce
-flatten
-deepClone
-debounce
-throttle
-curry
-memoize
-once
-retry
-groupBy
-Promise.all and other promise APIS
-EventEmitter
+ASYNC / AWAIT
+├── async functions                       ⏳ 🔥🔥
+├── await                                 ⏳ 🔥🔥🔥
+├── Handling rejected promises            ⏳
+├── Error handling                        ⏳
+└── try / catch                           ⏳ 🔥🔥
+
+
+HTTP / FETCH
+├── fetch()                               ⏳ 🔥🔥🔥
+├── Response handling                     ⏳
+├── JSON response                         ⏳
+├── GET requests                          ⏳
+├── POST requests                         ⏳
+├── HTTP error handling                   ⏳
+└── AbortController                       ⏳ 🔥🔥
+
+
+PROMISE COMBINATORS
+├── Promise.all()                         ⏳ 🔥🔥🔥
+├── Promise.allSettled()                  ⏳ 🔥🔥
+├── Promise.race()                        ⏳ 🔥
+└── Promise.any()                         ⏳ 🔥
+
+
+INTERVIEW / OUTPUT UNDERSTANDING
+├── Async execution-order questions       ⏳ 🔥🔥🔥
+├── Timer + Promise output questions      ⏳ 🔥🔥🔥
+├── Microtask vs Task Queue questions     ⏳ 🔥🔥🔥
+├── Debug async code                      ⏳ 🔥🔥
+└── Handle API failures                   ⏳ 🔥🔥
+
+
+9. ADVANCED PRACTICAL JAVASCRIPT
+
+A. IMPORTANT PRACTICAL PATTERNS
+
+├── Debounce                         ⏳ 🔥🔥🔥
+├── Throttle                         ⏳ 🔥🔥🔥
+├── Currying                         ⏳ 🔥🔥
+├── Memoization                      ⏳ 🔥🔥
+├── Function Composition             ⏳ 🔥
+├── once() pattern                   ⏳ 🔥
+├── Retry pattern                    ⏳ 🔥🔥
+└── Event Emitter                    ⏳ 🔥🔥🔥
+
+
+B. QUICK RECAP — DON'T RELEARN
+
+├── Closures                         ✅
+└── Recursion                        ✅
+
+Already covered in JavaScript Internals / Functions.
+Only use them when implementing the patterns below.
+
+
+C. IMPLEMENT ARRAY METHODS YOURSELF
+
+├── myMap()                          ⏳ 🔥🔥🔥
+├── myFilter()                       ⏳ 🔥🔥🔥
+├── myReduce()                       ⏳ 🔥🔥🔥
+├── flatten()                        ⏳ 🔥🔥
+└── groupBy()                        ⏳ 🔥🔥
+
+
+D. IMPLEMENT OBJECT / FUNCTION UTILITIES
+
+├── deepClone()                      ⏳ 🔥🔥🔥
+├── debounce()                       ⏳ 🔥🔥🔥
+├── throttle()                       ⏳ 🔥🔥🔥
+├── curry()                          ⏳ 🔥🔥
+├── memoize()                        ⏳ 🔥🔥
+├── once()                           ⏳ 🔥
+└── retry()                          ⏳ 🔥🔥
+
+
+E. IMPLEMENT PROMISE UTILITIES
+
+├── custom Promise.all()             ⏳ 🔥🔥🔥
+├── custom Promise.allSettled()      ⏳ 🔥🔥
+├── custom Promise.race()            ⏳ 🔥
+└── custom Promise.any()             ⏳ 🔥
+
+
+F. EVENT SYSTEM
+
+└── Custom EventEmitter              ⏳ 🔥🔥🔥
+    ├── on()
+    ├── emit()
+    ├── off()
+    └── once()
 
 
 #### PHASE 4 — TYPESCRIPT
