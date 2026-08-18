@@ -1,7 +1,7 @@
 6. JAVASCRIPT CORE
 #	Topic	Planned Images
 
-7	Functions — Core	6
+7	Functions — Core	7 left 
 8	Arrays — Core	7
 9	Objects — Core	7
 10	Strings	5
